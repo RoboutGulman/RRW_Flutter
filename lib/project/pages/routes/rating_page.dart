@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-import 'package:rrw_mvc_refac/generated/l10n.dart';
+
+import '../../../generated/l10n.dart';
 
 import '../../controllers/rating_controller.dart';
 import '../../models/team.dart';
@@ -32,7 +33,7 @@ class _RatingPage extends StateMVC<RatingPage> {
           S.of(context).tabName1,
           style: Theme.of(context).primaryTextTheme.headline1,
         ),
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: Theme.of(context).backgroundColor,
         centerTitle: true,
       ),
       body: ListView.builder(
@@ -46,18 +47,14 @@ class _RatingPage extends StateMVC<RatingPage> {
             children: [
               Container(
                 padding: const EdgeInsets.only(left: 12.0),
-                color: const Color.fromRGBO(60, 60, 67, 0.18),
+                color: Theme.of(context).unselectedWidgetColor,
                 width: MediaQuery.of(context).size.width,
                 height: 44,
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     _ratingController!.fractionNamesList[fractionIndex],
-                    style: const TextStyle(
-                      color: Color.fromRGBO(142, 142, 147, 1),
-                      fontSize: 13,
-                      letterSpacing: -0.08,
-                    ),
+                    style: Theme.of(context).primaryTextTheme.headline2
                   ),
                 ),
               ),
@@ -69,12 +66,12 @@ class _RatingPage extends StateMVC<RatingPage> {
                   height: 70,
                   child: currentFraction[teamIndex].buildTeam(context),
                 ),
-                separatorBuilder: (BuildContext _, int teamIndex) => const Divider(
+                separatorBuilder: (BuildContext _, int teamIndex) =>  Divider(
                     height: 1.0,
-                    indent: 16.0,
-                    endIndent: 16.0,
-                    thickness: 0.5,
-                    color: Color.fromRGBO(198, 198, 200, 1),                 
+                    indent: Theme.of(context).dividerTheme.indent,
+                    endIndent: Theme.of(context).dividerTheme.endIndent,
+                    thickness: Theme.of(context).dividerTheme.thickness,
+                    color: Theme.of(context).dividerTheme.color,                 
                   ),
                 itemCount: currentFraction.length,
               ),

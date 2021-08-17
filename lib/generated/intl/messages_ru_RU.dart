@@ -21,9 +21,36 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "fractionName1":
+            MessageLookupByLibrary.simpleMessage("ЖЕЛЕЗНЫЕ ДОРОГИ"),
+        "fractionName2": MessageLookupByLibrary.simpleMessage("ПОЛИТИКИ"),
+        "fractionName3":
+            MessageLookupByLibrary.simpleMessage("ТОРГОВЫЕ КОМПАНИИ"),
+        "prRatingStat1": MessageLookupByLibrary.simpleMessage("города"),
+        "prRatingStat2": MessageLookupByLibrary.simpleMessage("PR"),
+        "prRatingStat3": MessageLookupByLibrary.simpleMessage("пассажиры"),
+        "prTeamNames1": MessageLookupByLibrary.simpleMessage("Республика"),
+        "prTeamNames2": MessageLookupByLibrary.simpleMessage("Федерация"),
+        "prTeamNames3": MessageLookupByLibrary.simpleMessage("Конфедерация"),
+        "rrRatingStat1": MessageLookupByLibrary.simpleMessage("пассажиры"),
+        "rrRatingStat2": MessageLookupByLibrary.simpleMessage("кредиты"),
+        "rrRatingStat3": MessageLookupByLibrary.simpleMessage("грузы"),
+        "rrTeamNames1": MessageLookupByLibrary.simpleMessage("Техасская"),
+        "rrTeamNames2": MessageLookupByLibrary.simpleMessage("Нью-Йоркская"),
+        "rrTeamNames3": MessageLookupByLibrary.simpleMessage("Северная"),
+        "rrTeamNames4": MessageLookupByLibrary.simpleMessage("Юго-западная"),
+        "rrTeamNames5": MessageLookupByLibrary.simpleMessage("Тихоокеанская"),
+        "rrTeamNames6": MessageLookupByLibrary.simpleMessage("Юго-восточная"),
         "tabName1": MessageLookupByLibrary.simpleMessage("Рейтинг"),
         "tabName2": MessageLookupByLibrary.simpleMessage("Приказы"),
         "tabName3": MessageLookupByLibrary.simpleMessage("Исполнение"),
-        "tabName4": MessageLookupByLibrary.simpleMessage("Банк")
+        "tabName4": MessageLookupByLibrary.simpleMessage("Банк"),
+        "tkRatingStat1": MessageLookupByLibrary.simpleMessage("ж/д"),
+        "tkRatingStat2": MessageLookupByLibrary.simpleMessage("таможня"),
+        "tkRatingStat3": MessageLookupByLibrary.simpleMessage("перевозки"),
+        "tkTeamNames1": MessageLookupByLibrary.simpleMessage("ТК Вашингтона"),
+        "tkTeamNames2": MessageLookupByLibrary.simpleMessage("ТК Прескотта"),
+        "tkTeamNames3": MessageLookupByLibrary.simpleMessage("ТК Литл-Рока"),
+        "tkTeamNames4": MessageLookupByLibrary.simpleMessage("ТК Бисмарка")
       };
 }

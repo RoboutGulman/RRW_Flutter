@@ -21,9 +21,36 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "fractionName1": MessageLookupByLibrary.simpleMessage("RAILWAYS"),
+        "fractionName2": MessageLookupByLibrary.simpleMessage("POLITICANS"),
+        "fractionName3":
+            MessageLookupByLibrary.simpleMessage("TRADING COMPANIES"),
+        "prRatingStat1": MessageLookupByLibrary.simpleMessage("cities"),
+        "prRatingStat2": MessageLookupByLibrary.simpleMessage("PR"),
+        "prRatingStat3": MessageLookupByLibrary.simpleMessage("passengers"),
+        "prTeamNames1": MessageLookupByLibrary.simpleMessage("Republic"),
+        "prTeamNames2": MessageLookupByLibrary.simpleMessage("Federation"),
+        "prTeamNames3":
+            MessageLookupByLibrary.simpleMessage("The Confederation"),
+        "rrRatingStat1": MessageLookupByLibrary.simpleMessage("passengers"),
+        "rrRatingStat2": MessageLookupByLibrary.simpleMessage("loans"),
+        "rrRatingStat3": MessageLookupByLibrary.simpleMessage("traffic"),
+        "rrTeamNames1": MessageLookupByLibrary.simpleMessage("Texas"),
+        "rrTeamNames2": MessageLookupByLibrary.simpleMessage("New York"),
+        "rrTeamNames3": MessageLookupByLibrary.simpleMessage("North"),
+        "rrTeamNames4": MessageLookupByLibrary.simpleMessage("Southwest"),
+        "rrTeamNames5": MessageLookupByLibrary.simpleMessage("Pacific"),
+        "rrTeamNames6": MessageLookupByLibrary.simpleMessage("South-eastern"),
         "tabName1": MessageLookupByLibrary.simpleMessage("Rating"),
         "tabName2": MessageLookupByLibrary.simpleMessage("Orders"),
         "tabName3": MessageLookupByLibrary.simpleMessage("Execution"),
-        "tabName4": MessageLookupByLibrary.simpleMessage("Bank")
+        "tabName4": MessageLookupByLibrary.simpleMessage("Bank"),
+        "tkRatingStat1": MessageLookupByLibrary.simpleMessage("R/W"),
+        "tkRatingStat2": MessageLookupByLibrary.simpleMessage("customs"),
+        "tkRatingStat3": MessageLookupByLibrary.simpleMessage("transportation"),
+        "tkTeamNames1": MessageLookupByLibrary.simpleMessage("Washington TK"),
+        "tkTeamNames2": MessageLookupByLibrary.simpleMessage("Prescott TK"),
+        "tkTeamNames3": MessageLookupByLibrary.simpleMessage("Little Rock TK"),
+        "tkTeamNames4": MessageLookupByLibrary.simpleMessage("Bismarck TK")
       };
 }

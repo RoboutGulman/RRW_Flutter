@@ -8,7 +8,7 @@ class BankPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).tabName4, style: Theme.of(context).primaryTextTheme.headline1,),
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: Theme.of(context).backgroundColor,
         centerTitle: true,
       ),
       body: Container()

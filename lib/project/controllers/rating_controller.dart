@@ -4,6 +4,8 @@ import '../models/team.dart';
 import '../data/server_repo.dart';
 import '../models/post_rating.dart';
 
+import '../../generated/l10n.dart';
+
 class RatingController extends ControllerMVC {
   static late RatingController _this;
   static RatingController get controller => _this;
@@ -16,9 +18,9 @@ class RatingController extends ControllerMVC {
   RatingController._();
 
   final List<String> _fractionNamesList = [
-    'ЖЕЛЕЗНЫЕ ДОРОГИ',
-    'ПОЛИТИКИ',
-    'ТОРГОВЫЕ КОМПАНИИ',
+    S.current.fractionName1,
+    S.current.fractionName2,
+    S.current.fractionName3,
   ];
 
   List<String> get fractionNamesList => _fractionNamesList;
