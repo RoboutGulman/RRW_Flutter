@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
+import 'package:rrw_mvc_refac/generated/l10n.dart';
 
 import '../../controllers/rating_controller.dart';
 import '../../models/team.dart';
@@ -15,8 +16,6 @@ class _RatingPage extends StateMVC<RatingPage> {
     _ratingController = RatingController.controller;
   }
 
-  static const String _title = 'Рейтинг';
-
   late RatingController? _ratingController;
 
   @override
@@ -29,9 +28,9 @@ class _RatingPage extends StateMVC<RatingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          _title,
-          style: TextStyle(color: Colors.black),
+        title: Text(
+          S.of(context).tabName1,
+          style: Theme.of(context).primaryTextTheme.headline1,
         ),
         backgroundColor: Colors.grey.shade100,
         centerTitle: true,

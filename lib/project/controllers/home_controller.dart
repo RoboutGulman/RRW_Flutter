@@ -13,7 +13,8 @@ class HomeController extends ControllerMVC {
 
   HomeController._();
 
-  final _navigatorKeys = {
+  final Map<TabItem, GlobalKey<NavigatorState>>
+  _navigatorKeys = <TabItem, GlobalKey<NavigatorState>>{
     TabItem.RATING: GlobalKey<NavigatorState>(),
     TabItem.ORDERS: GlobalKey<NavigatorState>(),
     TabItem.EXECUTIONS: GlobalKey<NavigatorState>(),
@@ -22,8 +23,8 @@ class HomeController extends ControllerMVC {
 
   Map<TabItem, GlobalKey> get navigatorKeys => _navigatorKeys;
 
-  var _currentTab = TabItem.RATING;
-  var _previousTab = TabItem.RATING;
+  TabItem _currentTab = TabItem.RATING;
+  TabItem _previousTab = TabItem.RATING;
 
   TabItem get currentTab => _currentTab;
   TabItem get previousTab => _previousTab;

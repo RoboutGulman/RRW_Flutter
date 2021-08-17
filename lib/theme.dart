@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final darkTheme = ThemeData.dark().copyWith(
+final ThemeData darkTheme = ThemeData.dark().copyWith(
   primaryColor: Colors.white,
   brightness: Brightness.dark,
   accentColor: Colors.amber,
@@ -8,14 +8,26 @@ final darkTheme = ThemeData.dark().copyWith(
     selectedItemColor: Colors.blue,
     unselectedItemColor: Colors.grey,
   ),
+  primaryTextTheme: const TextTheme(
+    headline1: TextStyle(
+      fontSize: 20,
+      color: Colors.black
+    )
+  ),
 );
 
-final lightTheme = ThemeData.light().copyWith(
+final ThemeData lightTheme = ThemeData.light().copyWith(
   primaryColor: Colors.black,
   brightness: Brightness.light,
   accentColor: Colors.blue,
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedItemColor: Colors.blue,
     unselectedItemColor: Colors.grey,
+  ),
+  primaryTextTheme: const TextTheme(
+    headline1: TextStyle(
+      fontSize: 20,
+      color: Colors.black
+    )
   ),
 );

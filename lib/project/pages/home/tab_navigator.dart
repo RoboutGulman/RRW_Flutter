@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../routes/orders_page.dart';
-import '../routes/rating_page.dart';
-import '../routes/executions_page.dart';
-import '../routes/bank_page.dart';
-
 import '../../models/tab.dart';
 
+import '../routes/bank_page.dart';
+import '../routes/executions_page.dart';
+import '../routes/orders_page.dart';
+import '../routes/rating_page.dart';
+
 class TabNavigator extends StatelessWidget {
-  TabNavigator({this.navigatorKey, required this.tabItem});
+  const TabNavigator({this.navigatorKey, required this.tabItem});
 
   final GlobalKey<State<StatefulWidget>>? navigatorKey;
   final TabItem tabItem;
@@ -16,7 +16,7 @@ class TabNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Navigator(
-      onGenerateRoute: (routeSettings) {
+      onGenerateRoute: (RouteSettings routeSettings) {
         Widget currentPage;
         if (tabItem == TabItem.RATING) {
           currentPage = RatingPage();
@@ -27,7 +27,7 @@ class TabNavigator extends StatelessWidget {
         } else {
           currentPage = BankPage();
         }
-        return MaterialPageRoute(builder: (context) => currentPage);
+        return MaterialPageRoute(builder: (BuildContext context) => currentPage);
       },
     );
   }

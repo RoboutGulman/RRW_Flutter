@@ -1,15 +1,7 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 
 import '../../../generated/l10n.dart';
 import '../../models/tab.dart';
-
-const Map<TabItem, MyTab> tabs = {
-  TabItem.RATING : MyTab(name: 'Рейтинг', icon: Icon(CustomIcons.seal_fill),),
-  TabItem.ORDERS : MyTab(name: 'Приказы', icon: Icon(CustomIcons.arrow_up_doc_fill),),
-  TabItem.EXECUTIONS : MyTab(name: 'Исполнение', icon: Icon(CustomIcons.die_face_4_fill),),
-  TabItem.BANK : MyTab(name: 'Банк', icon: Icon(CustomIcons.creditcard_fill),),
-};
 
 class MyBottomNavigation extends StatelessWidget {
 
@@ -23,9 +15,9 @@ class MyBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return BottomNavigationBar(
-      selectedItemColor: Colors.blue,
+      selectedItemColor: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
       selectedFontSize: 12,
-      unselectedItemColor: Colors.grey,
+      unselectedItemColor: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
       type: BottomNavigationBarType.fixed,
       currentIndex: currentTab.index,
       items: _initItems(context),
@@ -36,7 +28,7 @@ class MyBottomNavigation extends StatelessWidget {
   }
 
   List<BottomNavigationBarItem> _initItems(BuildContext context) {
-    final Map<TabItem, MyTab> tabs = {
+    final Map<TabItem, MyTab> tabs = <TabItem, MyTab>{
       TabItem.RATING : MyTab(name: S.of(context).tabName1,
         icon: const Icon(CustomIcons.seal_fill),
       ),

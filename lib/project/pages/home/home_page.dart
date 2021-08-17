@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
-import '../../models/tab.dart';
-
 import '../../controllers/home_controller.dart';
+import '../../models/tab.dart';
 
 import 'bottom_navigation.dart';
 import 'tab_navigator.dart';
@@ -13,8 +12,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends StateMVC {
-  HomeController? _con;
+class _HomePageState extends StateMVC<HomePage> {
+  late HomeController? _con;
 
   _HomePageState() : super(HomeController()) {
     _con = HomeController.controller;
@@ -39,7 +38,7 @@ class _HomePageState extends StateMVC {
         ]),
         bottomNavigationBar: MyBottomNavigation(
           currentTab: _con!.currentTab,
-          onSelectTab: _con!.selectTab,
+          onSelectTab: _con!.selectTab
         )
       ),
     );
