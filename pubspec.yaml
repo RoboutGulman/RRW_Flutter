@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  lint: ^1.6.0
   mvc_pattern: ^7.0.0
 
   adaptive_theme: ^2.2.0
@@ -43,7 +44,6 @@ dependencies:
   #https://localizely.com/flutter-localization-workflow/
   #
   #https://redirect.is/sqnj7ri - we used this
-  
 
   http: ^0.13.3
 
@@ -54,6 +54,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+
+  generate: true
 
   uses-material-design: true
 
