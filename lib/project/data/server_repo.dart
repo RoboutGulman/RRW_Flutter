@@ -5,9 +5,9 @@ const String SERVER = 'https://rrw-test.herokuapp.com';
 
 class RateChangeRepository {
   Future<GameRating> getGameRatingInfo() async {
-    final url = Uri.parse("$SERVER/game/get-rating");
+    final Uri url = Uri.parse('$SERVER/game/get-rating');
 
-    final response = await http.get(url);
+    final http.Response response = await http.get(url);
 
     if (response.statusCode == 200) {
       return gameRatingFromJson(response.body);

@@ -18,7 +18,7 @@ class AppEntrance extends StatelessWidget {
       light: lightTheme,
       dark: darkTheme,
       initial: AdaptiveThemeMode.light,
-      builder: (theme, darkTheme) => MaterialApp(
+      builder: (ThemeData theme, ThemeData darkTheme) => MaterialApp(
         theme: theme,
         home: HomePage(),
         localizationsDelegates: [

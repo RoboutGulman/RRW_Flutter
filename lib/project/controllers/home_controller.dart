@@ -28,9 +28,9 @@ class HomeController extends ControllerMVC {
   TabItem get currentTab => _currentTab;
   TabItem get previousTab => _previousTab;
 
-  get selectTab => _selectTab;
+  Function(TabItem tabItem) get selectTab => _selectTab;
 
-  void _selectTab(TabItem tabItem) {
+  dynamic _selectTab(TabItem tabItem) {
     setState(() {
       _previousTab = _currentTab;
       _currentTab = tabItem;

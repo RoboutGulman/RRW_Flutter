@@ -27,8 +27,8 @@ class RatingController extends ControllerMVC {
   //можно реализовать отображение первой фракции, той к которой
   //принадлежит игрок
 
-  List _setCurrentFraction(int currentFractionID) {
-    late List currentFraction;
+  List<Team> _setCurrentFraction(int currentFractionID) {
+    late List<Team> currentFraction;
 
     switch (currentFractionID) {
       case RR_FRACTION_ID:
@@ -44,15 +44,15 @@ class RatingController extends ControllerMVC {
     return currentFraction;
   }
 
-  get setCurrentFraction => _setCurrentFraction;
+  List<Team> Function(int currentFractionID) get setCurrentFraction => _setCurrentFraction;
 
   final RateChangeRepository repo = RateChangeRepository();
 
   PostResult currentState = GameRatingResultLoading();
 
-  Future _updateRating() async {
+  Future<void> _updateRating() async {
     try {
-      final gameRating = await repo.getGameRatingInfo();
+      final GameRating gameRating = await repo.getGameRatingInfo();
       setState(() {
         currentState = GameRatingResultSuccess(gameRating);
         updateRatingBy(gameRating);
@@ -60,10 +60,9 @@ class RatingController extends ControllerMVC {
     } catch (error) {
       setState(() {
         currentState = GameRatingResultFailure('$error');
-        print('error happend in updating rating $error');
       });
     }
   }
 
-  get updateRating => _updateRating;
+  Future<void> Function() get updateRating => _updateRating;
 }
