@@ -13,44 +13,48 @@ final ThemeData darkTheme = ThemeData.dark().copyWith(
     indent: 16.0,
     endIndent: 16.0,
     thickness: 0.5,
-    color: Color.fromRGBO(198, 198, 200, 1),    
+    color: Color.fromRGBO(198, 198, 200, 1),
   ),
   backgroundColor: Colors.grey.shade100,
   //rating page, контейнер названий фракций
-  unselectedWidgetColor:Color.fromRGBO(60, 60, 67, 0.18),
+  unselectedWidgetColor: Color.fromRGBO(60, 60, 67, 0.18),
   primaryTextTheme: const TextTheme(
-    //заголовки страниц(appBar) и меню навигации
-    headline1: TextStyle(
-      fontSize: 20,
-      color: Colors.black
-    ),
-    //названия фракций
-    headline2: TextStyle(
-      color: Color.fromRGBO(142, 142, 147, 1),
-      fontSize: 13,
-      letterSpacing: -0.08,
-    ),
-    //названия параметров команд(пассажиры и т.д.)
-    subtitle1: TextStyle(
-      fontSize: 11,
-      color: Color.fromRGBO(60, 60, 67, 0.6),
-    ),
-    //названия команд
-    subtitle2: TextStyle(
-      fontSize: 20, 
-      fontWeight: FontWeight.w400
-    ),
-    //изменение рейтинга
-    headline3: TextStyle(
-      fontSize: 11,
-      color: Color.fromRGBO(33, 150, 83, 1),
-    ),
-    //текущий рейтинг
-    headline4:  TextStyle(
-      fontSize: 20, 
-      fontWeight: FontWeight.w400
-    )
-  ),
+      //заголовки страниц(appBar)
+      headline1: TextStyle(
+        fontSize: 20, 
+        fontWeight: FontWeight.w400, 
+        color: Colors.black
+      ),
+      //названия фракций
+      headline2: TextStyle(
+        color: Color.fromRGBO(142, 142, 147, 1),
+        fontSize: 13,
+        fontWeight: FontWeight.w400, 
+        letterSpacing: -0.08,
+      ),
+      //названия параметров команд(пассажиры и т.д.)
+      subtitle1: TextStyle(
+        fontSize: 11,
+        color: Color.fromRGBO(60, 60, 67, 0.6),
+      ),
+      //названия команд
+      subtitle2: TextStyle(
+        color: Colors.black, 
+        fontSize: 20, 
+        fontWeight: FontWeight.w400
+      ),       
+      //изменение рейтинга
+      headline3: TextStyle(
+        fontSize: 11,
+        color: Color.fromRGBO(33, 150, 83, 1),
+        fontWeight: FontWeight.w400, 
+      ),
+      //текущий рейтинг
+      headline4: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w400
+      )
+   ),
 );
 
 final ThemeData lightTheme = ThemeData.light().copyWith(
@@ -66,42 +70,46 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
     indent: 16.0,
     endIndent: 16.0,
     thickness: 0.5,
-    color: Color.fromRGBO(198, 198, 200, 1),    
+    color: Color.fromRGBO(198, 198, 200, 1),
   ),
   backgroundColor: Colors.grey.shade100,
   //rating page, контейнер названий фракций
-  unselectedWidgetColor:Color.fromRGBO(60, 60, 67, 0.18),
+  unselectedWidgetColor: Color.fromRGBO(60, 60, 67, 0.18),
   primaryTextTheme: const TextTheme(
-    //заголовки страниц(appBar) и меню навигации
-    headline1: TextStyle(
-      fontSize: 20,
-      color: Colors.black
-    ),
-    //названия фракций
-    headline2: TextStyle(
-      color: Color.fromRGBO(142, 142, 147, 1),
-      fontSize: 13,
-      letterSpacing: -0.08,
-    ),
-    //названия параметров команд(пассажиры и т.д.)
-    subtitle1: TextStyle(
-      fontSize: 11,
-      color: Color.fromRGBO(60, 60, 67, 0.6),
-    ),
-    //названия команд
-    subtitle2: TextStyle(
-      fontSize: 20, 
-      fontWeight: FontWeight.w400
-    ),
-    //изменение рейтинга
-    headline3: TextStyle(
-      fontSize: 11,
-      color: Color.fromRGBO(33, 150, 83, 1),
-    ),
-    //текущий рейтинг
-    headline4:  TextStyle(
-      fontSize: 20, 
-      fontWeight: FontWeight.w400
-    )
-  ),
+      //заголовки страниц(appBar)
+      headline1: TextStyle(
+        fontSize: 20, 
+        fontWeight: FontWeight.w400, 
+        color: Colors.black
+      ),
+      //названия фракций
+      headline2: TextStyle(
+        color: Color.fromRGBO(142, 142, 147, 1),
+        fontSize: 13,
+        fontWeight: FontWeight.w400, 
+        letterSpacing: -0.08,
+      ),
+      //названия параметров команд(пассажиры и т.д.)
+      subtitle1: TextStyle(
+        fontSize: 11,
+        color: Color.fromRGBO(60, 60, 67, 0.6),
+      ),
+      //названия команд
+      subtitle2: TextStyle(
+        color: Colors.black, 
+        fontSize: 20, 
+        fontWeight: FontWeight.w400
+      ),       
+      //изменение рейтинга
+      headline3: TextStyle(
+        fontSize: 11,
+        color: Color.fromRGBO(33, 150, 83, 1),
+        fontWeight: FontWeight.w400, 
+      ),
+      //текущий рейтинг
+      headline4: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w400
+      )
+   ),
 );
