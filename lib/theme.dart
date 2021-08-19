@@ -20,10 +20,10 @@ final ThemeData darkTheme = ThemeData.dark().copyWith(
   unselectedWidgetColor: Color.fromRGBO(60, 60, 67, 0.18),
   primaryTextTheme: const TextTheme(
       //заголовки страниц(appBar)
-      headline1: TextStyle(
+      headline1: TextStyle( 
+        color: Colors.black,
         fontSize: 20, 
-        fontWeight: FontWeight.w400, 
-        color: Colors.black
+        fontWeight: FontWeight.w400,
       ),
       //названия фракций
       headline2: TextStyle(
@@ -32,28 +32,28 @@ final ThemeData darkTheme = ThemeData.dark().copyWith(
         fontWeight: FontWeight.w400, 
         letterSpacing: -0.08,
       ),
-      //названия параметров команд(пассажиры и т.д.)
-      subtitle1: TextStyle(
-        fontSize: 11,
-        color: Color.fromRGBO(60, 60, 67, 0.6),
-      ),
-      //названия команд
-      subtitle2: TextStyle(
-        color: Colors.black, 
-        fontSize: 20, 
-        fontWeight: FontWeight.w400
-      ),       
       //изменение рейтинга
       headline3: TextStyle(
-        fontSize: 11,
         color: Color.fromRGBO(33, 150, 83, 1),
+        fontSize: 11,
         fontWeight: FontWeight.w400, 
       ),
       //текущий рейтинг
       headline4: TextStyle(
         fontSize: 20,
-        fontWeight: FontWeight.w400
-      )
+        fontWeight: FontWeight.w400,
+      ),
+      //названия параметров команд(пассажиры и т.д.)
+      subtitle1: TextStyle(
+        color: Color.fromRGBO(60, 60, 67, 0.6),
+        fontSize: 11,
+      ),
+      //названия команд
+      subtitle2: TextStyle(
+        color: Colors.black, 
+        fontSize: 20, 
+        fontWeight: FontWeight.w400,
+      ),
    ),
 );
 
@@ -77,10 +77,10 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
   unselectedWidgetColor: Color.fromRGBO(60, 60, 67, 0.18),
   primaryTextTheme: const TextTheme(
       //заголовки страниц(appBar)
-      headline1: TextStyle(
+      headline1: TextStyle( 
+        color: Colors.black,
         fontSize: 20, 
-        fontWeight: FontWeight.w400, 
-        color: Colors.black
+        fontWeight: FontWeight.w400,
       ),
       //названия фракций
       headline2: TextStyle(
@@ -89,27 +89,28 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
         fontWeight: FontWeight.w400, 
         letterSpacing: -0.08,
       ),
+      //изменение рейтинга
+      headline3: TextStyle(
+        color: Color.fromRGBO(33, 150, 83, 1),
+        fontSize: 11,
+        fontWeight: FontWeight.w400, 
+      ),
+      //текущий рейтинг
+      headline4: TextStyle(
+        color: Colors.black,
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+      ),
       //названия параметров команд(пассажиры и т.д.)
       subtitle1: TextStyle(
-        fontSize: 11,
         color: Color.fromRGBO(60, 60, 67, 0.6),
+        fontSize: 11,
       ),
       //названия команд
       subtitle2: TextStyle(
         color: Colors.black, 
         fontSize: 20, 
-        fontWeight: FontWeight.w400
-      ),       
-      //изменение рейтинга
-      headline3: TextStyle(
-        fontSize: 11,
-        color: Color.fromRGBO(33, 150, 83, 1),
-        fontWeight: FontWeight.w400, 
+        fontWeight: FontWeight.w400,
       ),
-      //текущий рейтинг
-      headline4: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w400
-      )
    ),
 );
