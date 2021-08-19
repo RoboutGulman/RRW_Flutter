@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -24,122 +22,6 @@ class Team implements Comparable {
   late num rating;
   late num ratingDynamic;
   late Map<String, int?> rateChange;
-
-  List<String> getTranslatedMapRateChangeToListString() {
-    String rateAnswerAll = '';
-    late String rateChange_1;
-    late String rateChange_2;
-    late String rateChange_3;
-    const String deltaSign = '+';
-    List<String> rateAnswers = <String>['', '', ''];
-
-    List<String> result = <String>[];
-
-    if (rateChange.containsValue(null)) return rateAnswers;
-
-    rateChange.forEach((String key, int? value) {
-      if (value! >= 0) rateAnswerAll += deltaSign;
-
-      rateAnswerAll += '$value ' + '$key :';
-    });
-
-    rateAnswers = rateAnswerAll.split(':');
-
-    rateChange_1 = rateAnswers[0];
-    rateChange_2 = rateAnswers[1];
-    rateChange_3 = rateAnswers[2];
-
-    result.add(rateChange_1);
-    result.add(rateChange_2);
-    result.add(rateChange_3);
-
-    return result;
-  }
-
-  @override
-  int compareTo(dynamic other) {
-
-    other as Team;
-
-    if (rating < other.rating) {
-      return 1;
-    }
-
-    if (rating > other.rating) {
-      return -1;
-    }
-
-    if (rating == other.rating) {
-      return 0;
-    }
-
-    return 11; //i'm so sorry
-  }
-
-  Widget showRateStatistic(BuildContext context) {
-    final List<String> rateChangeElements = getTranslatedMapRateChangeToListString();
-
-    return Container(
-      padding: const EdgeInsets.only(top: 3),
-      child: GridView.count(
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        crossAxisCount: 2,
-        childAspectRatio: MediaQuery.of(context).size.width / 40.39,
-        children: <Widget>[
-          Text(
-            rateChangeElements[0],
-            style: Theme.of(context).primaryTextTheme.subtitle1,
-          ),
-          Text(
-            rateChangeElements[1],
-            style: Theme.of(context).primaryTextTheme.subtitle1,
-          ),
-          Text(
-            rateChangeElements[2],
-            style: Theme.of(context).primaryTextTheme.subtitle1,
-          ),
-        ],
-      )
-    );
-  }
-
-  Widget showFinalRating(BuildContext context) {
-    ratingDynamic = 0;
-    String deltaSign = '+';
-    String ratingDelta;
-
-    rateChange.forEach((String key, int? value) {
-      if (value != null) ratingDynamic += value;
-    });
-
-    if (ratingDynamic < 0) {
-      deltaSign = '';
-    }
-
-    if (rateChange.containsValue(null)) {
-      ratingDelta = '';
-    } else {
-      ratingDelta = '$deltaSign$ratingDynamic';
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Text(
-          '$rating',
-          style: Theme.of(context).primaryTextTheme.headline4,
-        ),
-        Container(
-          padding: const EdgeInsets.only(top: 3),
-          child: Text(
-            ratingDelta,
-            style: Theme.of(context).primaryTextTheme.headline3,
-          ),
-        ),
-      ],
-    );
-  }
 
   Widget buildTeam(BuildContext context) {
     return Row(
@@ -181,6 +63,123 @@ class Team implements Comparable {
       ],
     );
   }
+
+  Widget showRateStatistic(BuildContext context) {
+    final List<String> rateChangeElements = getTranslatedMapRateChangeToListString();
+
+    return Container(
+      padding: const EdgeInsets.only(top: 3),
+      child: GridView.count(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        crossAxisCount: 2,
+        childAspectRatio: MediaQuery.of(context).size.width / 40.39,
+        children: <Widget>[
+          Text(
+            rateChangeElements[0],
+            style: Theme.of(context).primaryTextTheme.subtitle1,
+          ),
+          Text(
+            rateChangeElements[1],
+            style: Theme.of(context).primaryTextTheme.subtitle1,
+          ),
+          Text(
+            rateChangeElements[2],
+            style: Theme.of(context).primaryTextTheme.subtitle1,
+          ),
+        ],
+      )
+    );
+  }
+
+  List<String> getTranslatedMapRateChangeToListString() {
+    String rateAnswerAll = '';
+    late String rateChange_1;
+    late String rateChange_2;
+    late String rateChange_3;
+    const String deltaSign = '+';
+    List<String> rateAnswers = <String>['', '', ''];
+
+    List<String> result = <String>[];
+
+    if (rateChange.containsValue(null)) return rateAnswers;
+
+    rateChange.forEach((String key, int? value) {
+      if (value! >= 0) rateAnswerAll += deltaSign;
+
+      rateAnswerAll += '$value ' + '$key :';
+    });
+
+    rateAnswers = rateAnswerAll.split(':');
+
+    rateChange_1 = rateAnswers[0];
+    rateChange_2 = rateAnswers[1];
+    rateChange_3 = rateAnswers[2];
+
+    result.add(rateChange_1);
+    result.add(rateChange_2);
+    result.add(rateChange_3);
+
+    return result;
+  }
+
+  Widget showFinalRating(BuildContext context) {
+    ratingDynamic = 0;
+    String deltaSign = '+';
+    String ratingDelta;
+
+    rateChange.forEach((String key, int? value) {
+      if (value != null) ratingDynamic += value;
+    });
+
+    if (ratingDynamic < 0) {
+      deltaSign = '';
+    }
+
+    if (rateChange.containsValue(null)) {
+      ratingDelta = '';
+    } else {
+      ratingDelta = '$deltaSign$ratingDynamic';
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: <Widget>[
+        Text(
+          '$rating',
+          style: Theme.of(context).primaryTextTheme.headline4,
+        ),
+        Container(
+          padding: const EdgeInsets.only(top: 3),
+          child: Text(
+            ratingDelta,
+            style: Theme.of(context).primaryTextTheme.headline3,
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  int compareTo(dynamic other) {
+
+    other as Team;
+
+    if (rating < other.rating) {
+      return 1;
+    }
+
+    if (rating > other.rating) {
+      return -1;
+    }
+
+    if (rating == other.rating) {
+      return 0;
+    }
+
+    return 11; //i'm so sorry
+  }
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
