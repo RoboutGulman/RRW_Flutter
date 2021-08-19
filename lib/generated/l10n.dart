@@ -89,6 +89,256 @@ class S {
       args: [],
     );
   }
+
+  /// `пассажиры`
+  String get rrRatingStat1 {
+    return Intl.message(
+      'пассажиры',
+      name: 'rrRatingStat1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `кредиты`
+  String get rrRatingStat2 {
+    return Intl.message(
+      'кредиты',
+      name: 'rrRatingStat2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `грузы`
+  String get rrRatingStat3 {
+    return Intl.message(
+      'грузы',
+      name: 'rrRatingStat3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `города`
+  String get prRatingStat1 {
+    return Intl.message(
+      'города',
+      name: 'prRatingStat1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PR`
+  String get prRatingStat2 {
+    return Intl.message(
+      'PR',
+      name: 'prRatingStat2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `пассажиры`
+  String get prRatingStat3 {
+    return Intl.message(
+      'пассажиры',
+      name: 'prRatingStat3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ж/д`
+  String get tkRatingStat1 {
+    return Intl.message(
+      'ж/д',
+      name: 'tkRatingStat1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `таможня`
+  String get tkRatingStat2 {
+    return Intl.message(
+      'таможня',
+      name: 'tkRatingStat2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `перевозки`
+  String get tkRatingStat3 {
+    return Intl.message(
+      'перевозки',
+      name: 'tkRatingStat3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Техасская`
+  String get rrTeamNames1 {
+    return Intl.message(
+      'Техасская',
+      name: 'rrTeamNames1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Нью-Йоркская`
+  String get rrTeamNames2 {
+    return Intl.message(
+      'Нью-Йоркская',
+      name: 'rrTeamNames2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Северная`
+  String get rrTeamNames3 {
+    return Intl.message(
+      'Северная',
+      name: 'rrTeamNames3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Юго-западная`
+  String get rrTeamNames4 {
+    return Intl.message(
+      'Юго-западная',
+      name: 'rrTeamNames4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Тихоокеанская`
+  String get rrTeamNames5 {
+    return Intl.message(
+      'Тихоокеанская',
+      name: 'rrTeamNames5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Юго-восточная`
+  String get rrTeamNames6 {
+    return Intl.message(
+      'Юго-восточная',
+      name: 'rrTeamNames6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Республика`
+  String get prTeamNames1 {
+    return Intl.message(
+      'Республика',
+      name: 'prTeamNames1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Федерация`
+  String get prTeamNames2 {
+    return Intl.message(
+      'Федерация',
+      name: 'prTeamNames2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Конфедерация`
+  String get prTeamNames3 {
+    return Intl.message(
+      'Конфедерация',
+      name: 'prTeamNames3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ТК Вашингтона`
+  String get tkTeamNames1 {
+    return Intl.message(
+      'ТК Вашингтона',
+      name: 'tkTeamNames1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ТК Прескотта`
+  String get tkTeamNames2 {
+    return Intl.message(
+      'ТК Прескотта',
+      name: 'tkTeamNames2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ТК Литл-Рока`
+  String get tkTeamNames3 {
+    return Intl.message(
+      'ТК Литл-Рока',
+      name: 'tkTeamNames3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ТК Бисмарка`
+  String get tkTeamNames4 {
+    return Intl.message(
+      'ТК Бисмарка',
+      name: 'tkTeamNames4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ЖЕЛЕЗНЫЕ ДОРОГИ`
+  String get fractionName1 {
+    return Intl.message(
+      'ЖЕЛЕЗНЫЕ ДОРОГИ',
+      name: 'fractionName1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ПОЛИТИКИ`
+  String get fractionName2 {
+    return Intl.message(
+      'ПОЛИТИКИ',
+      name: 'fractionName2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ТОРГОВЫЕ КОМПАНИИ`
+  String get fractionName3 {
+    return Intl.message(
+      'ТОРГОВЫЕ КОМПАНИИ',
+      name: 'fractionName3',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

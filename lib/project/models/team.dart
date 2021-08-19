@@ -1,5 +1,9 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+import '../../generated/l10n.dart';
 
 import 'post_rating.dart';
 
@@ -85,31 +89,22 @@ class Team implements Comparable {
         children: <Widget>[
           Text(
             rateChangeElements[0],
-            style: const TextStyle(
-              fontSize: 11,
-              color: Color.fromRGBO(60, 60, 67, 0.6),
-            ),
+            style: Theme.of(context).primaryTextTheme.subtitle1,
           ),
           Text(
             rateChangeElements[1],
-            style: const TextStyle(
-              fontSize: 11,
-              color: Color.fromRGBO(60, 60, 67, 0.6),
-            ),
+            style: Theme.of(context).primaryTextTheme.subtitle1,
           ),
           Text(
             rateChangeElements[2],
-            style: const TextStyle(
-              fontSize: 11,
-              color: Color.fromRGBO(60, 60, 67, 0.6),
-            ),
+            style: Theme.of(context).primaryTextTheme.subtitle1,
           ),
         ],
       )
     );
   }
 
-  Widget showFinalRating() {
+  Widget showFinalRating(BuildContext context) {
     ratingDynamic = 0;
     String deltaSign = '+';
     String ratingDelta;
@@ -133,16 +128,13 @@ class Team implements Comparable {
       children: <Widget>[
         Text(
           '$rating',
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+          style: Theme.of(context).primaryTextTheme.headline4,
         ),
         Container(
           padding: const EdgeInsets.only(top: 3),
           child: Text(
             ratingDelta,
-            style: const TextStyle(
-              fontSize: 11,
-              color: Color.fromRGBO(33, 150, 83, 1),
-            ),
+            style: Theme.of(context).primaryTextTheme.headline3,
           ),
         ),
       ],
@@ -174,7 +166,7 @@ class Team implements Comparable {
               children: [
                 Text(
                   name,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  style: Theme.of(context).primaryTextTheme.subtitle2,
                 ),
                 showRateStatistic(context),
               ],
@@ -184,7 +176,7 @@ class Team implements Comparable {
         Flexible(
           fit: FlexFit.tight,
           flex: 2,
-          child: showFinalRating(),
+          child: showFinalRating(context),
         ),
       ],
     );
@@ -193,23 +185,19 @@ class Team implements Comparable {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const List<String> rrTeamNames = <String>[
-  'Техасская',
-  'Нью-Йоркская',
-  'Северная',
-  'Юго-западная',
-  'Тихоокеанская',
-  'Юго-восточная',
+List<String> rrTeamNames = <String>[
+  S.current.rrTeamNames1,
+  S.current.rrTeamNames2,
+  S.current.rrTeamNames3,
+  S.current.rrTeamNames4,
+  S.current.rrTeamNames5,
+  S.current.rrTeamNames6,                                   
 ];
 
-const String RR_RATING_STAT_1 = 'пассажиры';
-const String RR_RATING_STAT_2 = 'кредиты';
-const String RR_RATING_STAT_3 = 'грузы';
-
 Map<String, int?> rrRateChange = <String, int?>{
-  RR_RATING_STAT_1: null,
-  RR_RATING_STAT_2: null,
-  RR_RATING_STAT_3: null,
+  S.current.rrRatingStat1: null,
+  S.current.rrRatingStat2: null,
+  S.current.rrRatingStat3: null,
 };
 
 const List<Color> rrTeamColors = <Color>[
@@ -223,20 +211,16 @@ const List<Color> rrTeamColors = <Color>[
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const List<String> prTeamNames = <String>[
-  'Республика',
-  'Федерация',
-  'Конфедерация',
+List<String> prTeamNames = <String>[
+  S.current.prTeamNames1,
+  S.current.prTeamNames2,
+  S.current.prTeamNames3,
 ];
 
-const String PR_RATING_STAT_1 = 'города';
-const String PR_RATING_STAT_2 = 'PR';
-const String PR_RATING_STAT_3 = 'ж/д';
-
 Map<String, int?> prRateChange = <String, int?>{
-  PR_RATING_STAT_1: null,
-  PR_RATING_STAT_2: null,
-  PR_RATING_STAT_3: null,
+  S.current.prRatingStat1: null,
+  S.current.prRatingStat2: null,
+  S.current.prRatingStat3: null,
 };
 
 const List<Color> prTeamColors = <Color>[
@@ -246,21 +230,17 @@ const List<Color> prTeamColors = <Color>[
 ];
 
 ////////////////////////////////////////////////////////////////////////////////
-const List<String> tkTeamNames = <String>[
-  'ТК Вашингтона',
-  'ТК Прескотта',
-  'ТК Литл-Рока',
-  'ТК Бисмарка',
+List<String> tkTeamNames = <String>[
+  S.current.tkTeamNames1,
+  S.current.tkTeamNames2,
+  S.current.tkTeamNames3,
+  S.current.tkTeamNames4,
 ];
 
-const String TK_RATING_STAT_1 = 'грузопотоки';
-const String TK_RATING_STAT_2 = 'таможня';
-const String TK_RATING_STAT_3 = 'перевозки';
-
 Map<String, int?> tkRateChange = <String, int?>{
-  TK_RATING_STAT_1: null,
-  TK_RATING_STAT_2: null,
-  TK_RATING_STAT_3: null,
+  S.current.tkRatingStat1: null,
+  S.current.tkRatingStat2: null,
+  S.current.tkRatingStat3: null,
 };
 
 const List<Color> tkTeamColors = <Color>[
@@ -350,9 +330,9 @@ void updateRatingBy(GameRating gameRating) {
   rrFraction.forEach((Team team) {
     gameRating.railways.forEach((TeamInfo teamInfo) {
       if (team.name == teamInfo.teamName) {
-        team.rateChange[RR_RATING_STAT_1] = teamInfo.ratingChange1;
-        team.rateChange[RR_RATING_STAT_2] = teamInfo.ratingChange2;
-        team.rateChange[RR_RATING_STAT_3] = teamInfo.ratingChange3;
+        team.rateChange[S.current.rrRatingStat1] = teamInfo.ratingChange1;
+        team.rateChange[S.current.rrRatingStat2] = teamInfo.ratingChange2;
+        team.rateChange[S.current.rrRatingStat3] = teamInfo.ratingChange3;
         team.ratingDynamic = teamInfo.ratingChange1 +
           teamInfo.ratingChange2 +
           teamInfo.ratingChange3;
@@ -364,9 +344,9 @@ void updateRatingBy(GameRating gameRating) {
   prFraction.forEach((Team team) {
     gameRating.policies.forEach((TeamInfo teamInfo) {
       if (team.name == teamInfo.teamName) {
-        team.rateChange[PR_RATING_STAT_1] = teamInfo.ratingChange1;
-        team.rateChange[PR_RATING_STAT_2] = teamInfo.ratingChange2;
-        team.rateChange[PR_RATING_STAT_3] = teamInfo.ratingChange3;
+        team.rateChange[S.current.prRatingStat1] = teamInfo.ratingChange1;
+        team.rateChange[S.current.prRatingStat2] = teamInfo.ratingChange2;
+        team.rateChange[S.current.prRatingStat3] = teamInfo.ratingChange3;
         team.ratingDynamic = teamInfo.ratingChange1 +
           teamInfo.ratingChange2 +
           teamInfo.ratingChange3;
@@ -378,9 +358,9 @@ void updateRatingBy(GameRating gameRating) {
   tkFraction.forEach((Team team) {
     gameRating.tradingCompanies.forEach((TeamInfo teamInfo) {
       if (team.name == teamInfo.teamName) {
-        team.rateChange[TK_RATING_STAT_1] = teamInfo.ratingChange1;
-        team.rateChange[TK_RATING_STAT_2] = teamInfo.ratingChange2;
-        team.rateChange[TK_RATING_STAT_3] = teamInfo.ratingChange3;
+        team.rateChange[S.current.tkRatingStat1] = teamInfo.ratingChange1;
+        team.rateChange[S.current.tkRatingStat2] = teamInfo.ratingChange2;
+        team.rateChange[S.current.tkRatingStat3] = teamInfo.ratingChange3;
         team.ratingDynamic = teamInfo.ratingChange1 +
           teamInfo.ratingChange2 +
           teamInfo.ratingChange3;

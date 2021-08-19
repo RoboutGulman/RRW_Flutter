@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rrw_mvc_refac/generated/l10n.dart';
+import '../../../generated/l10n.dart';
 
 class ExecutionsPage extends StatefulWidget {
   
@@ -13,7 +13,7 @@ class _ExecutionsPageState extends State<ExecutionsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).tabName3, style: Theme.of(context).primaryTextTheme.headline1,),
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: Theme.of(context).backgroundColor,
         centerTitle: true,
       ),
       body: Container()

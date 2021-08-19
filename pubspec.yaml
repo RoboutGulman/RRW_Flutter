@@ -12,7 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  lint: ^1.6.0
   mvc_pattern: ^7.0.0
 
   adaptive_theme: ^2.2.0

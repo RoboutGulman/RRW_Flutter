@@ -3,5 +3,33 @@
   "tabName1": "Рейтинг",
   "tabName2": "Приказы",
   "tabName3": "Исполнение",
-  "tabName4": "Банк"
+  "tabName4": "Банк",
+
+  "rrRatingStat1":"пассажиры",
+  "rrRatingStat2":"кредиты",
+  "rrRatingStat3":"грузы",
+  "prRatingStat1":"города",
+  "prRatingStat2":"PR",
+  "prRatingStat3":"пассажиры",
+  "tkRatingStat1":"ж/д",
+  "tkRatingStat2":"таможня",
+  "tkRatingStat3":"перевозки",
+  
+  "rrTeamNames1":"Техасская",
+  "rrTeamNames2":"Нью-Йоркская",
+  "rrTeamNames3":"Северная",
+  "rrTeamNames4":"Юго-западная",
+  "rrTeamNames5":"Тихоокеанская",
+  "rrTeamNames6":"Юго-восточная",
+  "prTeamNames1":"Республика",
+  "prTeamNames2":"Федерация",
+  "prTeamNames3":"Конфедерация",
+  "tkTeamNames1":"ТК Вашингтона",
+  "tkTeamNames2":"ТК Прескотта",
+  "tkTeamNames3":"ТК Литл-Рока",
+  "tkTeamNames4":"ТК Бисмарка",
+
+  "fractionName1":"ЖЕЛЕЗНЫЕ ДОРОГИ",
+  "fractionName2":"ПОЛИТИКИ",
+  "fractionName3":"ТОРГОВЫЕ КОМПАНИИ"
 }

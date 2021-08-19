@@ -3,5 +3,33 @@
   "tabName1": "Rating",
   "tabName2": "Orders",
   "tabName3": "Execution",
-  "tabName4": "Bank"
+  "tabName4": "Bank",
+
+  "rrRatingStat1":"passengers",
+  "rrRatingStat2":"loans",
+  "rrRatingStat3":"traffic",
+  "prRatingStat1":"cities",
+  "prRatingStat2":"PR",
+  "prRatingStat3":"passengers",
+  "tkRatingStat1":"R/W",
+  "tkRatingStat2":"customs",
+  "tkRatingStat3":"transportation",
+  
+  "rrTeamNames1":"Texas",
+  "rrTeamNames2":"New York",
+  "rrTeamNames3":"North",
+  "rrTeamNames4":"Southwest",
+  "rrTeamNames5":"Pacific",
+  "rrTeamNames6":"South-eastern",
+  "prTeamNames1":"Republic",
+  "prTeamNames2":"Federation",
+  "prTeamNames3":"The Confederation",
+  "tkTeamNames1":"Washington TK",
+  "tkTeamNames2":"Prescott TK",
+  "tkTeamNames3":"Little Rock TK",
+  "tkTeamNames4":"Bismarck TK",
+
+  "fractionName1":"RAILWAYS",
+  "fractionName2":"POLITICANS",
+  "fractionName3":"TRADING COMPANIES"
 }
