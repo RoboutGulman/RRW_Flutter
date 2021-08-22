@@ -7,24 +7,19 @@ import '../models/post_rating.dart';
 class RatingController extends ControllerMVC {
 
   static late RatingController _this;
+  static RatingController get controller => _this;
 
   factory RatingController() {
     initFractions();
     _this = RatingController._();
     return _this;
-  }
-
-  static RatingController get controller => _this;
+  }  
 
   RatingController._();
 
   List<String> get fractionNamesList => fractionNamesList;
 
-  void Function() get initRating => initFractions;  
-
   final RateChangeRepository repo = RateChangeRepository();
-
-  PostResult currentState = GameRatingResultLoading();
 
   void updateRating() async {
     try {
@@ -33,13 +28,10 @@ class RatingController extends ControllerMVC {
       setState(() { //причём он опознаёт setState как функцию из import,
       //значит она должна как-то взаимодейcтвовать с MVC
         //не получается зайти в setState :(
-        currentState = GameRatingResultSuccess(gameRating);
         updateRatingBy(gameRating);
       });
     } catch (error) {
-      setState(() {
-        currentState = GameRatingResultFailure('$error');
-      });
+      setState(() {});
     }
   }
 
