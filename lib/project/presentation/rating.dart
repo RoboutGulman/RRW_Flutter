@@ -112,7 +112,7 @@ class Team implements Comparable {
   Team({required this.fractionId, required this.id}){
     name = teamNames.popTeamName(fractionId);
     image = _FractionIcon().getTeamIcon(fractionId);
-    statsDescrp = _StatisticDesription().getStatsDescrp(fractionId);
+    statsDescrp = _StatisticDescription().getStatsDescrp(fractionId);
     statsValue = _StatisticValue().initStatsValue();
   }
 
@@ -251,7 +251,7 @@ class _TeamNames {
   }
 }
 
-class _StatisticDesription {
+class _StatisticDescription {
 
   List<String> rrStats = <String>[
     S.current.rrRatingStat1,
@@ -269,7 +269,7 @@ class _StatisticDesription {
     S.current.tkRatingStat3,
   ];
 
-  _StatisticDesription();
+  _StatisticDescription();
 
   List<String> getStatsDescrp(int fractionId) {
     switch (fractionId) {
