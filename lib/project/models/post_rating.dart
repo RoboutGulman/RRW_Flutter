@@ -2,8 +2,6 @@ import 'dart:convert';
 
 GameRating gameRatingFromJson(String str) => GameRating.fromJson(json.decode(str));
 
-String gameRatingToJson(GameRating data) => json.encode(data.toJson());
-
 class GameRating {
   factory GameRating.fromJson(Map<String, dynamic> json) => GameRating(
     railways: List<TeamInfo>.from(json["railways"].map((x) => TeamInfo.fromJson(x))),
@@ -20,12 +18,6 @@ class GameRating {
   List<TeamInfo> railways;
   List<TeamInfo> policies;
   List<TeamInfo> tradingCompanies;
-
-  Map<String, dynamic> toJson() => {
-    "railways": List<dynamic>.from(railways.map((TeamInfo x) => x.toJson())),
-    "policies": List<dynamic>.from(policies.map((TeamInfo x) => x.toJson())),
-    "tradingCompanies": List<dynamic>.from(tradingCompanies.map((TeamInfo x) => x.toJson())),
-  };
 
   static const int RR_FRACTION_ID = 0;
   static const int PR_FRACTION_ID = 1;
@@ -67,14 +59,6 @@ class TeamInfo {
   int ratingChange2;
   int ratingChange3;
   int rating;
-
-  Map<String, dynamic> toJson() => <String, dynamic>{
-    "team_name": teamName,
-    "ratingChange1": ratingChange1,
-    "ratingChange2": ratingChange2,
-    "ratingChange3": ratingChange3,
-    "rating": rating,
-  };
 
   List<int> getStatsInfo() {
     List<int> statsInfo = [];
