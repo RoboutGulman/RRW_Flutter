@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> runTitle(context) async {
@@ -21,7 +22,7 @@ class TitlePage extends StatefulWidget {
 }
 
 
-class _TitlePageState extends State<TitlePage> {
+class _TitlePageState extends StateMVC<TitlePage> {
 
   @override
   void initState() {
