@@ -21,7 +21,7 @@ class _RatingPage extends StateMVC<RatingPage> {
     super.initState();
     //но в _con.updateRating(); не срабатывает метод setState, просто отказывается входить в него
     //может быть проблема в том, как я построил RatingPage:
-    //RatingPage содержит State, и при обновлении setState он должен перестроится вместе с детьми,
+    //RatingPage содержит State (расширял от StateMVC), и при обновлении setState он должен перестроится вместе с детьми,
     //его детей я расширял от Statless и моет быть в этом проблема
     _con.updateRating();
     //в общем, главный вопрос: почему не срабатывает setState в методе контроллера??
