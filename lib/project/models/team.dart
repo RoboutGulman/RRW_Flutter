@@ -5,159 +5,162 @@ import '../../generated/l10n.dart';
 
 import 'post_rating.dart';
 
-class Team implements Comparable {
-  Team({required int fractionID, required int teamID}) {
-    name = fractionsTeamNames[fractionID][teamID];
-    id = teamID;
-    rating = 0;
-    image = fractionsTeamIcons[fractionID];
-    rateChange = fractionRateData[fractionID];
-    color = fractionTeamColors[fractionID][teamID];
+const int RR_FRACTION_ID = 0;
+const int PR_FRACTION_ID = 1;
+const int TK_FRACTION_ID = 2;
+
+const int RR_TEAM_AMOUNT = 6;
+const int PR_TEAM_AMOUNT = 3;
+const int TK_TEAM_AMOUNT = 4;
+
+void initFractions() {
+  rrFraction.initFraction();
+  prFraction.initFraction();
+  tkFraction.initFraction();
+}
+
+final Fraction rrFraction = Fraction(
+  name: fractionNamesList[RR_FRACTION_ID], 
+  id: RR_FRACTION_ID,
+  maxTeamAmount: RR_TEAM_AMOUNT,
+);
+
+final Fraction prFraction = Fraction(
+  name: fractionNamesList[PR_FRACTION_ID], 
+  id: PR_FRACTION_ID,
+  maxTeamAmount: PR_TEAM_AMOUNT,
+);
+
+final Fraction tkFraction = Fraction(
+  name: fractionNamesList[TK_FRACTION_ID], 
+  id: TK_FRACTION_ID,
+  maxTeamAmount: TK_TEAM_AMOUNT,
+);
+
+final List<Fraction> fraction = <Fraction>[
+  rrFraction,
+  prFraction,
+  tkFraction,
+];
+
+final List<String> fractionNamesList = [
+  S.current.fractionName1,
+  S.current.fractionName2,
+  S.current.fractionName3,
+];
+
+class Fraction {
+
+  final String name;
+  final int id;
+  final int maxTeamAmount;
+  int teamNumber = 0;
+  List<Team> teamList = <Team>[];
+
+  Fraction({required this.name, required this.id, required this.maxTeamAmount}); 
+
+  void initFraction() {
+    for (var i = 0; i < this.maxTeamAmount; i++) {
+      this.addTeam();
+    }
+  }
+  
+  void addTeam() {
+    this.teamList.add(Team(fractionId: this.id, id: this.teamNumber));
+    this.teamNumber = this.teamList.length;
   }
 
+  void removeTeam(int teamId) {
+    this.teamList.forEach((team) {
+      if (team.id == teamId) {
+        this.teamList.remove(team);
+      }
+    });
+    this.teamNumber = this.teamList.length;
+  }
+  
+  int getMaxTeamAmountOfThisFraction(int fractionId) {
+    switch (fractionId) {
+      case RR_FRACTION_ID:
+        return RR_TEAM_AMOUNT;
+      case PR_FRACTION_ID:
+        return PR_TEAM_AMOUNT;
+      case TK_FRACTION_ID:
+        return TK_TEAM_AMOUNT;
+      default:
+        return -1;
+    }
+  }
+
+  void sortTeams({bool reversed = false}) {
+    this.teamList.sort((Team a, Team b) {
+      return a.compareTo(b);
+    });
+
+    if (reversed) {
+      this.teamList = this.teamList.reversed.toList();
+    }
+  }
+
+}
+
+_TeamNames teamNames = _TeamNames();
+_TeamColor teamColor = _TeamColor();
+
+
+class Team implements Comparable {
+  Team({required this.fractionId, required this.id}){
+    name = teamNames.popTeamName(fractionId);
+    image = _FractionIcon().getTeamIcon(fractionId);
+    statsDescrp = _StatisticDesription().getStatsDescrp(fractionId);
+    statsValue = _StatisticValue().initStatsValue();
+  }
+
+  final int fractionId;
+  final int id;
   late String name;
   late IconData image;
-  late Color color;
-  late int id;
-  late num rating;
-  late num ratingDynamic;
-  late Map<String, int?> rateChange;
+  final Color color = teamColor.getRandomColor();
+  List<String> statsDescrp = <String>[];
+  late List<int?> statsValue; 
+  int rating = 0;
+  int ratingDynamic = 0;
 
-  Widget buildTeam(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Flexible(
-          fit: FlexFit.tight,
-          flex: 2,
-          child: Container(
-            alignment: Alignment.center,
-            child: Icon(
-              image,
-              color: color,
-            ),
-          ),
-        ),
-        Flexible(
-          fit: FlexFit.tight,
-          flex: 8,
-          child: Container(
-            height: 60,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  name,
-                  style: Theme.of(context).primaryTextTheme.subtitle2,
-                ),
-                showRateStatistic(context),
-              ],
-            ),
-          ),
-        ),
-        Flexible(
-          fit: FlexFit.tight,
-          flex: 2,
-          child: showFinalRating(context),
-        ),
-      ],
-    );
-  }
+  List<String> getFormatedStatsOfTeam() {
+    String statsAnswerAll = '';
 
-  Widget showRateStatistic(BuildContext context) {
-    final List<String> rateChangeElements = getTranslatedMapRateChangeToListString();
+    List<String> statsAnswers = <String>['', '', ''];
 
-    return Container(
-      padding: const EdgeInsets.only(top: 3),
-      child: GridView.count(
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        crossAxisCount: 2,
-        childAspectRatio: MediaQuery.of(context).size.width / 40.39,
-        children: <Widget>[
-          Text(
-            rateChangeElements[0],
-            style: Theme.of(context).primaryTextTheme.subtitle1,
-          ),
-          Text(
-            rateChangeElements[1],
-            style: Theme.of(context).primaryTextTheme.subtitle1,
-          ),
-          Text(
-            rateChangeElements[2],
-            style: Theme.of(context).primaryTextTheme.subtitle1,
-          ),
-        ],
-      )
-    );
-  }
+    if (this.statsValue.contains(null)) return statsAnswers;
 
-  List<String> getTranslatedMapRateChangeToListString() {
-    String rateAnswerAll = '';
-    late String rateChange_1;
-    late String rateChange_2;
-    late String rateChange_3;
-    const String deltaSign = '+';
-    List<String> rateAnswers = <String>['', '', ''];
-
-    List<String> result = <String>[];
-
-    if (rateChange.containsValue(null)) return rateAnswers;
-
-    rateChange.forEach((String key, int? value) {
-      if (value! >= 0) rateAnswerAll += deltaSign;
-
-      rateAnswerAll += '$value ' + '$key :';
+    this.statsValue.forEach((value) {
+      if (value! >= 0) {
+        statsAnswerAll += '+$value:';
+      } else {
+        statsAnswerAll += '$value:';
+      }
     });
 
-    rateAnswers = rateAnswerAll.split(':');
+    statsAnswers = statsAnswerAll.split(':');
+    statsAnswers.removeLast();
 
-    rateChange_1 = rateAnswers[0];
-    rateChange_2 = rateAnswers[1];
-    rateChange_3 = rateAnswers[2];
-
-    result.add(rateChange_1);
-    result.add(rateChange_2);
-    result.add(rateChange_3);
-
-    return result;
-  }
-
-  Widget showFinalRating(BuildContext context) {
-    ratingDynamic = 0;
-    String deltaSign = '+';
-    String ratingDelta;
-
-    rateChange.forEach((String key, int? value) {
-      if (value != null) ratingDynamic += value;
-    });
-
-    if (ratingDynamic < 0) {
-      deltaSign = '';
+    for (var i = 0; i < statsAnswers.length; i++) {
+      statsAnswers[i] += ' ${this.statsDescrp[i]}'; 
     }
 
-    if (rateChange.containsValue(null)) {
-      ratingDelta = '';
+    return statsAnswers;
+  }
+
+  String getFormatedRatingDynamic() {
+    int sumOfStats = 0;
+    this.statsValue.forEach((stat) {
+      sumOfStats += stat!;
+    });
+    if (sumOfStats >= 0) {
+      return '+$sumOfStats';
     } else {
-      ratingDelta = '$deltaSign$ratingDynamic';
+      return '$sumOfStats';
     }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Text(
-          '$rating',
-          style: Theme.of(context).primaryTextTheme.headline4,
-        ),
-        Container(
-          padding: const EdgeInsets.only(top: 3),
-          child: Text(
-            ratingDelta,
-            style: Theme.of(context).primaryTextTheme.headline3,
-          ),
-        ),
-      ],
-    );
   }
 
   @override
@@ -177,88 +180,170 @@ class Team implements Comparable {
       return 0;
     }
 
-    return 11; //i'm so sorry
+    return 11; //????
   }
   
 }
 
-////////////////////////////////////////////////////////////////////////////////
+void updateRatingBy(GameRating gameRating) {
+  int updatedTeamAmount = 0; //as teamId, both means same
 
-List<String> rrTeamNames = <String>[
-  S.current.rrTeamNames1,
-  S.current.rrTeamNames2,
-  S.current.rrTeamNames3,
-  S.current.rrTeamNames4,
-  S.current.rrTeamNames5,
-  S.current.rrTeamNames6,                                   
-];
+  print("i can't reach that code!!!");
 
-Map<String, int?> rrRateChange = <String, int?>{
-  S.current.rrRatingStat1: null,
-  S.current.rrRatingStat2: null,
-  S.current.rrRatingStat3: null,
-};
+  fraction.forEach((Fraction fraction) {
+    List<TeamInfo> fractionRating = gameRating.getFractionInfoBy(fraction.id);
 
-const List<Color> rrTeamColors = <Color>[
-  Colors.red,
-  Colors.green,
-  Colors.blue,
-  Colors.yellow,
-  Colors.orange,
-  Colors.black,
-];
+    fraction.teamList.forEach((Team team) {
 
-////////////////////////////////////////////////////////////////////////////////
+      fractionRating.forEach((TeamInfo teamInfo) {
 
-List<String> prTeamNames = <String>[
-  S.current.prTeamNames1,
-  S.current.prTeamNames2,
-  S.current.prTeamNames3,
-];
+        if (team.id == updatedTeamAmount) {
+          List<int> statsInfo = teamInfo.getStatsInfo();
 
-Map<String, int?> prRateChange = <String, int?>{
-  S.current.prRatingStat1: null,
-  S.current.prRatingStat2: null,
-  S.current.prRatingStat3: null,
-};
+          for (var i = 0; i < team.statsValue.length; i++) {
+            team.statsValue[i] = statsInfo[i] ;           
+          }
 
-const List<Color> prTeamColors = <Color>[
-  Colors.yellow,
-  Colors.blue,
-  Colors.red,
-];
+          team.ratingDynamic = teamInfo.ratingChange1 +
+            teamInfo.ratingChange2 +
+            teamInfo.ratingChange3;
 
-////////////////////////////////////////////////////////////////////////////////
-List<String> tkTeamNames = <String>[
-  S.current.tkTeamNames1,
-  S.current.tkTeamNames2,
-  S.current.tkTeamNames3,
-  S.current.tkTeamNames4,
-];
+          team.rating = teamInfo.rating;
 
-Map<String, int?> tkRateChange = <String, int?>{
-  S.current.tkRatingStat1: null,
-  S.current.tkRatingStat2: null,
-  S.current.tkRatingStat3: null,
-};
+          updatedTeamAmount++;
+        }        
 
-const List<Color> tkTeamColors = <Color>[
-  Colors.yellow,
-  Colors.purple,
-  Colors.pink,
-  Colors.green,
-];
+      });
+    });
+    fraction.sortTeams();
+    updatedTeamAmount = 0;
+  });
+}
 
-////////////////////////////////////////////////////////////////////////////////
+class _TeamNames {
+  
+  List<List<String>> teamNames = [
+    [
+      S.current.rrTeamNames1,
+      S.current.rrTeamNames2,
+      S.current.rrTeamNames3,
+      S.current.rrTeamNames4,
+      S.current.rrTeamNames5,
+      S.current.rrTeamNames6,
+    ],
+    [
+      S.current.prTeamNames1,
+      S.current.prTeamNames2,
+      S.current.prTeamNames3,
+    ],
+    [
+      S.current.tkTeamNames1,
+      S.current.tkTeamNames2,
+      S.current.tkTeamNames3,
+      S.current.tkTeamNames4,
+    ],
+  ];
 
-List<IconData> fractionsTeamIcons = <IconData>[
-  CustomIcons.road,
-  CustomIcons.star,
-  CustomIcons.pin,
-];
+  _TeamNames();
 
-class CustomIcons {
-  CustomIcons._();
+  String popTeamName(int fractionId) {
+    return this.teamNames[fractionId].removeAt(0);
+  }
+}
+
+class _StatisticDesription {
+
+  List<String> rrStats = <String>[
+    S.current.rrRatingStat1,
+    S.current.rrRatingStat2,
+    S.current.rrRatingStat3,
+  ];
+  List<String> prStats = <String>[
+    S.current.prRatingStat1,
+    S.current.prRatingStat2,
+    S.current.prRatingStat3,
+  ];
+  List<String> tkStats = <String>[
+    S.current.tkRatingStat1,
+    S.current.tkRatingStat2,
+    S.current.tkRatingStat3,
+  ];
+
+  _StatisticDesription();
+
+  List<String> getStatsDescrp(int fractionId) {
+    switch (fractionId) {
+      case RR_FRACTION_ID:
+        return rrStats;
+      case PR_FRACTION_ID:
+        return prStats;
+      case TK_FRACTION_ID:
+        return tkStats;
+    }
+    return [];
+  }
+
+}
+
+class _StatisticValue {
+  List<int?> statsValue = <int?>[
+    0, //Stat1
+    0, //Stat2
+    0, //Stat3
+  ];
+
+  _StatisticValue();
+
+  List<int?> initStatsValue() {
+    return statsValue;
+  }
+}
+
+//some bugs in color rand
+class _TeamColor {
+  List<Color> teamColor = <Color>[
+    Colors.black,
+    Colors.blue,
+    Colors.green,
+    Colors.orange,
+    Colors.pink,
+    Colors.purple,
+    Colors.red,
+    Colors.yellow,
+  ];
+
+  _TeamColor();
+
+  Color getRandomColor() {
+    if (this.teamColor.isNotEmpty) {
+      return _popedColor();
+    } else {
+      _initColor();
+      return _popedColor();
+    }
+  }
+
+  void _initColor() {
+    this.teamColor = <Color>[
+      Colors.black,
+      Colors.blue,
+      Colors.green,
+      Colors.orange,
+      Colors.pink,
+      Colors.purple,
+      Colors.red,
+      Colors.yellow,
+    ];
+  }
+
+  Color _popedColor() {
+    this.teamColor.shuffle();
+    return this.teamColor.removeLast();
+  }
+}
+
+class TeamIcons {
+  TeamIcons._();
 
   static const String _fontFam = 'CustomIcons';
 
@@ -270,102 +355,18 @@ class CustomIcons {
       IconData(0xe80c, fontFamily: _fontFam);
 }
 
-List<List<Color>> fractionTeamColors = <List<Color>>[
-  rrTeamColors,
-  prTeamColors,
-  tkTeamColors,
-];
+class _FractionIcon {
 
-List<Map<String, int?>> fractionRateData = <Map<String, int?>>[
-  rrRateChange,
-  prRateChange,
-  tkRateChange,
-];
+  List<IconData> fractionsTeamIcons = <IconData>[
+    TeamIcons.road,
+    TeamIcons.star,
+    TeamIcons.pin,
+  ];
 
-////////////////////////////////////////////////////////////////////////////////
+  _FractionIcon();
 
-const int RR_FRACTION_ID = 0;
-const int PR_FRACTION_ID = 1;
-const int TK_FRACTION_ID = 2;
-
-List<List<String>> fractionsTeamNames = <List<String>>[
-  rrTeamNames,
-  prTeamNames,
-  tkTeamNames,
-];
-
-List<Team> rrFraction = <Team>[
-  Team(fractionID: RR_FRACTION_ID, teamID: 0),
-  Team(fractionID: RR_FRACTION_ID, teamID: 1),
-  Team(fractionID: RR_FRACTION_ID, teamID: 2),
-  Team(fractionID: RR_FRACTION_ID, teamID: 3),
-  Team(fractionID: RR_FRACTION_ID, teamID: 4),
-  Team(fractionID: RR_FRACTION_ID, teamID: 5),
-];
-List<Team> prFraction = <Team>[
-  Team(fractionID: PR_FRACTION_ID, teamID: 0),
-  Team(fractionID: PR_FRACTION_ID, teamID: 1),
-  Team(fractionID: PR_FRACTION_ID, teamID: 2),
-];
-List<Team> tkFraction = <Team>[
-  Team(fractionID: TK_FRACTION_ID, teamID: 0),
-  Team(fractionID: TK_FRACTION_ID, teamID: 1),
-  Team(fractionID: TK_FRACTION_ID, teamID: 2),
-  Team(fractionID: TK_FRACTION_ID, teamID: 3),
-];
-
-////////////////////////////////////////////////////////////////////////////////
-
-void sortTeams(List<Team> currentFraction, {bool reversed = false}) {
-  currentFraction.sort((Team a, Team b) {
-    return a.compareTo(b);
-  });
-  if (reversed) {
-    currentFraction = currentFraction.reversed.toList();
+  IconData getTeamIcon(int fractionId) {
+    return fractionsTeamIcons[fractionId];
   }
-}
 
-void updateRatingBy(GameRating gameRating) {
-  rrFraction.forEach((Team team) {
-    gameRating.railways.forEach((TeamInfo teamInfo) {
-      if (team.name == teamInfo.teamName) {
-        team.rateChange[S.current.rrRatingStat1] = teamInfo.ratingChange1;
-        team.rateChange[S.current.rrRatingStat2] = teamInfo.ratingChange2;
-        team.rateChange[S.current.rrRatingStat3] = teamInfo.ratingChange3;
-        team.ratingDynamic = teamInfo.ratingChange1 +
-          teamInfo.ratingChange2 +
-          teamInfo.ratingChange3;
-        team.rating = teamInfo.rating;
-      }
-    });
-  });
-  sortTeams(rrFraction);
-  prFraction.forEach((Team team) {
-    gameRating.policies.forEach((TeamInfo teamInfo) {
-      if (team.name == teamInfo.teamName) {
-        team.rateChange[S.current.prRatingStat1] = teamInfo.ratingChange1;
-        team.rateChange[S.current.prRatingStat2] = teamInfo.ratingChange2;
-        team.rateChange[S.current.prRatingStat3] = teamInfo.ratingChange3;
-        team.ratingDynamic = teamInfo.ratingChange1 +
-          teamInfo.ratingChange2 +
-          teamInfo.ratingChange3;
-        team.rating = teamInfo.rating;
-      }
-    });
-  });
-  sortTeams(prFraction);
-  tkFraction.forEach((Team team) {
-    gameRating.tradingCompanies.forEach((TeamInfo teamInfo) {
-      if (team.name == teamInfo.teamName) {
-        team.rateChange[S.current.tkRatingStat1] = teamInfo.ratingChange1;
-        team.rateChange[S.current.tkRatingStat2] = teamInfo.ratingChange2;
-        team.rateChange[S.current.tkRatingStat3] = teamInfo.ratingChange3;
-        team.ratingDynamic = teamInfo.ratingChange1 +
-          teamInfo.ratingChange2 +
-          teamInfo.ratingChange3;
-        team.rating = teamInfo.rating;
-      }
-    });
-  });
-  sortTeams(tkFraction);
 }
