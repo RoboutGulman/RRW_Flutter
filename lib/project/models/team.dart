@@ -120,7 +120,7 @@ class Team implements Comparable {
   final int id;
   late String name;
   late IconData image;
-  final Color color = teamColor.getRandomColor();
+  final Color color = teamColor.getColor();
   List<String> statsDescrp = <String>[];
   late List<int?> statsValue; 
   int rating = 0;
@@ -314,7 +314,7 @@ class _TeamColor {
 
   _TeamColor();
 
-  Color getRandomColor() {
+  Color getColor() {
     if (this.teamColor.isNotEmpty) {
       return _popedColor();
     } else {
