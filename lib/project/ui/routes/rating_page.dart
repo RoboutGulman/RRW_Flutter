@@ -4,7 +4,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import '../../../generated/l10n.dart';
 
 import '../../controllers/rating_controller.dart';
-import '../../models/team.dart';
+import '../../presentation/rating.dart';
 
 class RatingPage extends StatefulWidget {
   @override

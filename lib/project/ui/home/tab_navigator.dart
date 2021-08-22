@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/tab.dart';
+import '../../presentation/tab.dart';
 
 import '../routes/bank_page.dart';
 import '../routes/executions_page.dart';

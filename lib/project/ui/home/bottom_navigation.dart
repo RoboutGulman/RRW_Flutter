@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../generated/l10n.dart';
-import '../../models/tab.dart';
+import '../../presentation/tab.dart';
 
 class MyBottomNavigation extends StatelessWidget {
 
