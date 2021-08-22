@@ -90,6 +90,66 @@ class S {
     );
   }
 
+  /// `Авторизация`
+  String get login_page {
+    return Intl.message(
+      'Авторизация',
+      name: 'login_page',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Логин`
+  String get text_field {
+    return Intl.message(
+      'Логин',
+      name: 'text_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ошибка!`
+  String get error1 {
+    return Intl.message(
+      'Ошибка!',
+      name: 'error1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Логин не может быть пустым.`
+  String get error2 {
+    return Intl.message(
+      'Логин не может быть пустым.',
+      name: 'error2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Логин сохранён`
+  String get success {
+    return Intl.message(
+      'Логин сохранён',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get button {
+    return Intl.message(
+      'OK',
+      name: 'button',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `пассажиры`
   String get rrRatingStat1 {
     return Intl.message(

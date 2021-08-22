@@ -5,6 +5,16 @@
   "tabName3": "Execution",
   "tabName4": "Bank",
 
+  "login_page":"Authorization",
+
+  "text_field":"Login",
+  "error1":"Error!",
+  "error2":"The username cannot be empty.",
+
+  "success":"The username is saved",
+
+  "button":"OK",
+
   "rrRatingStat1":"passengers",
   "rrRatingStat2":"loans",
   "rrRatingStat3":"traffic",

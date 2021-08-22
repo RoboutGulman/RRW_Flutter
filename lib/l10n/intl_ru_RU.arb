@@ -5,6 +5,16 @@
   "tabName3": "Исполнение",
   "tabName4": "Банк",
 
+  "login_page":"Авторизация",
+
+  "text_field":"Логин",
+  "error1":"Ошибка!",
+  "error2":"Логин не может быть пустым.",
+
+  "success":"Логин сохранён",
+
+  "button":"OK",
+
   "rrRatingStat1":"пассажиры",
   "rrRatingStat2":"кредиты",
   "rrRatingStat3":"грузы",

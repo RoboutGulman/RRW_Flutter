@@ -69,19 +69,3 @@ class TeamInfo {
   }
   
 }
-
-abstract class PostResult {}
-
-class GameRatingResultSuccess extends PostResult {
-  late GameRating postList;
-  GameRatingResultSuccess(this.postList);
-}
-
-class GameRatingResultFailure extends PostResult {
-  late String error;
-  GameRatingResultFailure(this.error);
-}
-
-class GameRatingResultLoading extends PostResult {
-  GameRatingResultLoading();
-}
