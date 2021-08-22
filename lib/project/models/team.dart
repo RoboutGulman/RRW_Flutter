@@ -338,7 +338,6 @@ class _TeamColor {
   }
 
   Color _popedColor() {
-    this.teamColor.shuffle();
     return this.teamColor.removeLast();
   }
 }
