@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends StateMVC<HomePage> {
-  late HomeController? _con;
+  late HomeController _con;
 
   _HomePageState() : super(HomeController()) {
     _con = HomeController.controller;
@@ -23,8 +23,8 @@ class _HomePageState extends StateMVC<HomePage> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        if (_con!.currentTab != _con!.previousTab) {
-          _con!.selectTab(_con!.previousTab);
+        if (_con.currentTab != _con.previousTab) {
+          _con.selectTab(_con.previousTab);
           return false;
         }
         return false;
@@ -37,8 +37,8 @@ class _HomePageState extends StateMVC<HomePage> {
           _buildOffstageNavigator(TabItem.BANK),
         ]),
         bottomNavigationBar: MyBottomNavigation(
-          currentTab: _con!.currentTab,
-          onSelectTab: _con!.selectTab
+          currentTab: _con.currentTab,
+          onSelectTab: _con.selectTab
         )
       ),
     );
@@ -46,9 +46,9 @@ class _HomePageState extends StateMVC<HomePage> {
 
   Widget _buildOffstageNavigator(TabItem tabItem) {
     return Offstage(
-      offstage: _con!.currentTab != tabItem,
+      offstage: _con.currentTab != tabItem,
       child: TabNavigator(
-        navigatorKey: _con!.navigatorKeys[tabItem],
+        navigatorKey: _con.navigatorKeys[tabItem],
         tabItem: tabItem,
       ),
     );
