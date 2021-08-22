@@ -27,6 +27,22 @@ class GameRating {
     "tradingCompanies": List<dynamic>.from(tradingCompanies.map((TeamInfo x) => x.toJson())),
   };
 
+  static const int RR_FRACTION_ID = 0;
+  static const int PR_FRACTION_ID = 1;
+  static const int TK_FRACTION_ID = 2;
+
+  List<TeamInfo> getFractionInfoBy(int fractionId) {
+    switch (fractionId) {
+      case RR_FRACTION_ID:
+        return this.railways;        
+      case PR_FRACTION_ID:
+        return this.policies;
+      case TK_FRACTION_ID:
+        return this.tradingCompanies;
+    }
+    return [];
+  }
+
 }
 
 class TeamInfo {
@@ -59,6 +75,14 @@ class TeamInfo {
     "ratingChange3": ratingChange3,
     "rating": rating,
   };
+
+  List<int> getStatsInfo() {
+    List<int> statsInfo = [];
+    statsInfo.add(this.ratingChange1);
+    statsInfo.add(this.ratingChange2);
+    statsInfo.add(this.ratingChange3);
+    return statsInfo;
+  }
   
 }
 
