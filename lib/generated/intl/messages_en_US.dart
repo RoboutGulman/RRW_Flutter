@@ -21,10 +21,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "button": MessageLookupByLibrary.simpleMessage("OK"),
+        "error1": MessageLookupByLibrary.simpleMessage("Error!"),
+        "error2": MessageLookupByLibrary.simpleMessage(
+            "The username cannot be empty."),
         "fractionName1": MessageLookupByLibrary.simpleMessage("RAILWAYS"),
         "fractionName2": MessageLookupByLibrary.simpleMessage("POLITICANS"),
         "fractionName3":
             MessageLookupByLibrary.simpleMessage("TRADING COMPANIES"),
+        "login_page": MessageLookupByLibrary.simpleMessage("Authorization"),
         "prRatingStat1": MessageLookupByLibrary.simpleMessage("cities"),
         "prRatingStat2": MessageLookupByLibrary.simpleMessage("PR"),
         "prRatingStat3": MessageLookupByLibrary.simpleMessage("passengers"),
@@ -41,10 +46,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "rrTeamNames4": MessageLookupByLibrary.simpleMessage("Southwest"),
         "rrTeamNames5": MessageLookupByLibrary.simpleMessage("Pacific"),
         "rrTeamNames6": MessageLookupByLibrary.simpleMessage("South-eastern"),
+        "success":
+            MessageLookupByLibrary.simpleMessage("The username is saved"),
         "tabName1": MessageLookupByLibrary.simpleMessage("Rating"),
         "tabName2": MessageLookupByLibrary.simpleMessage("Orders"),
         "tabName3": MessageLookupByLibrary.simpleMessage("Execution"),
         "tabName4": MessageLookupByLibrary.simpleMessage("Bank"),
+        "text_field": MessageLookupByLibrary.simpleMessage("Login"),
         "tkRatingStat1": MessageLookupByLibrary.simpleMessage("R/W"),
         "tkRatingStat2": MessageLookupByLibrary.simpleMessage("customs"),
         "tkRatingStat3": MessageLookupByLibrary.simpleMessage("transportation"),

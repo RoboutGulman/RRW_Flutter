@@ -21,11 +21,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "button": MessageLookupByLibrary.simpleMessage("OK"),
+        "error1": MessageLookupByLibrary.simpleMessage("Ошибка!"),
+        "error2":
+            MessageLookupByLibrary.simpleMessage("Логин не может быть пустым."),
         "fractionName1":
             MessageLookupByLibrary.simpleMessage("ЖЕЛЕЗНЫЕ ДОРОГИ"),
         "fractionName2": MessageLookupByLibrary.simpleMessage("ПОЛИТИКИ"),
         "fractionName3":
             MessageLookupByLibrary.simpleMessage("ТОРГОВЫЕ КОМПАНИИ"),
+        "login_page": MessageLookupByLibrary.simpleMessage("Авторизация"),
         "prRatingStat1": MessageLookupByLibrary.simpleMessage("города"),
         "prRatingStat2": MessageLookupByLibrary.simpleMessage("PR"),
         "prRatingStat3": MessageLookupByLibrary.simpleMessage("пассажиры"),
@@ -41,10 +46,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rrTeamNames4": MessageLookupByLibrary.simpleMessage("Юго-западная"),
         "rrTeamNames5": MessageLookupByLibrary.simpleMessage("Тихоокеанская"),
         "rrTeamNames6": MessageLookupByLibrary.simpleMessage("Юго-восточная"),
+        "success": MessageLookupByLibrary.simpleMessage("Логин сохранён"),
         "tabName1": MessageLookupByLibrary.simpleMessage("Рейтинг"),
         "tabName2": MessageLookupByLibrary.simpleMessage("Приказы"),
         "tabName3": MessageLookupByLibrary.simpleMessage("Исполнение"),
         "tabName4": MessageLookupByLibrary.simpleMessage("Банк"),
+        "text_field": MessageLookupByLibrary.simpleMessage("Логин"),
         "tkRatingStat1": MessageLookupByLibrary.simpleMessage("ж/д"),
         "tkRatingStat2": MessageLookupByLibrary.simpleMessage("таможня"),
         "tkRatingStat3": MessageLookupByLibrary.simpleMessage("перевозки"),
