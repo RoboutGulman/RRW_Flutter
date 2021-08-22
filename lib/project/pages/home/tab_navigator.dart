@@ -18,14 +18,19 @@ class TabNavigator extends StatelessWidget {
     return Navigator(
       onGenerateRoute: (RouteSettings routeSettings) {
         Widget currentPage;
-        if (tabItem == TabItem.RATING) {
-          currentPage = RatingPage();
-        } else if (tabItem == TabItem.ORDERS) {
-          currentPage = OrdersPage();
-        } else if (tabItem == TabItem.EXECUTIONS) {
-          currentPage = ExecutionsPage();
-        } else {
-          currentPage = BankPage();
+        switch (tabItem) {
+          case TabItem.RATING:
+            currentPage = RatingPage();
+            break;
+          case TabItem.ORDERS:
+            currentPage = OrdersPage();
+            break;
+          case TabItem.EXECUTIONS:
+            currentPage = ExecutionsPage();
+            break;
+          case TabItem.BANK:
+            currentPage = BankPage();
+            break;
         }
         return MaterialPageRoute(builder: (BuildContext context) => currentPage);
       },
