@@ -299,7 +299,6 @@ class _StatisticValue {
   }
 }
 
-//some bugs in color rand
 class _TeamColor {
   List<Color> teamColor = <Color>[
     Colors.black,
@@ -310,6 +309,7 @@ class _TeamColor {
     Colors.purple,
     Colors.red,
     Colors.yellow,
+    Colors.indigo,
   ];
 
   _TeamColor();
@@ -333,6 +333,7 @@ class _TeamColor {
       Colors.purple,
       Colors.red,
       Colors.yellow,
+      Colors.indigo,
     ];
   }
 
