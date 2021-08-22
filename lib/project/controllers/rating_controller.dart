@@ -29,8 +29,9 @@ class RatingController extends ControllerMVC {
   void updateRating() async {
     try {
       final GameRating gameRating = await repo.getGameRatingInfo();
-      updateRatingBy(gameRating); //пришлось достать функцию
-      setState(() {
+      updateRatingBy(gameRating); //пришлось достать функцию из неработающего setState
+      setState(() { //причём он опознаёт setState как функцию из import,
+      //значит она должна как-то взаимодейcтвовать с MVC
         //не получается зайти в setState :(
         currentState = GameRatingResultSuccess(gameRating);
         updateRatingBy(gameRating);
