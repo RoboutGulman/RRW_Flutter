@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../presentation/tab.dart';
 
-import '../routes/bank_page.dart';
-import '../routes/executions_page.dart';
-import '../routes/orders_page.dart';
-import '../routes/rating_page.dart';
+import '../routes/bank.dart';
+import '../routes/executions.dart';
+import '../routes/orders.dart';
+import '../routes/rating.dart';
 
 class TabNavigator extends StatelessWidget {
   const TabNavigator({this.navigatorKey, required this.tabItem});
