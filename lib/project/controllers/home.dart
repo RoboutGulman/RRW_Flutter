@@ -4,14 +4,6 @@ import '../presentation/tab.dart';
 
 class HomeController extends ControllerMVC {
   static late HomeController _this;
-  static HomeController get controller => _this;
-
-  factory HomeController() {
-    _this = HomeController._();
-    return _this;
-  }
-
-  HomeController._();
 
   final Map<TabItem, GlobalKey<NavigatorState>>
   _navigatorKeys = <TabItem, GlobalKey<NavigatorState>>{
@@ -21,11 +13,18 @@ class HomeController extends ControllerMVC {
     TabItem.BANK: GlobalKey<NavigatorState>(),
   };
 
-  Map<TabItem, GlobalKey> get navigatorKeys => _navigatorKeys;
-
   TabItem _currentTab = TabItem.RATING;
   TabItem _previousTab = TabItem.RATING;
 
+    factory HomeController() {
+    _this = HomeController._();
+    return _this;
+  }
+
+  HomeController._();
+
+  static HomeController get controller => _this;
+  Map<TabItem, GlobalKey> get navigatorKeys => _navigatorKeys;
   TabItem get currentTab => _currentTab;
   TabItem get previousTab => _previousTab;
 

@@ -6,8 +6,9 @@ import '../presentation/post_rating.dart';
 
 class RatingController extends ControllerMVC {
 
+  final RateChangeRepository repo = RateChangeRepository();
+
   static late RatingController _this;
-  static RatingController get controller => _this;
 
   factory RatingController() {
     initFractions();
@@ -18,8 +19,6 @@ class RatingController extends ControllerMVC {
   RatingController._();
 
   List<String> get fractionNamesList => fractionNamesList;
-
-  final RateChangeRepository repo = RateChangeRepository();
 
   void updateRating() async {
     try {
@@ -34,6 +33,8 @@ class RatingController extends ControllerMVC {
       setState(() {});
     }
   }
+
+  static RatingController get controller => _this;
 
   int getTeamAmountOfFraction(Fraction fraction) {
     return fraction.teamNumber;
