@@ -1,6 +1,8 @@
 # **Railroad Wars**
 
-## **FLUTTER APP**
+###### [Same **readme**, but in English](./readme_en.md)
+
+## **FLUTTER ПИРЛОЖЕНИЕ**
 
 ### *Переносим настольную игру в более удобный формат*
 
@@ -12,69 +14,76 @@
 
 #### *В МОБИЛЬНЫЙ :)*
 
-## **Installation**
+---
 
-1. **Clone that repo**
+## **Установка**
 
-2. **Setting up *Flutter***
-   - Google -> Flutter get started
-   - Open first relevant link
+1. **Клонируй этот репозиторий**
 
-     [latest relevant link][1]
+2. **Настраиваем *Flutter***
+   - Гугли -> Flutter get started
+   - Открой первую правдоподобную ссылку
 
-     should be something like this
+     [последняя актуальная ссылка](https://flutter.dev/docs/get-started/install)
+
+     ты увидишь что-то такое
 
      ![png](https://i.imgur.com/2Td2PAf.png)
 
 
-   - Follow instructions
-   - **Make sure** that everything is **OK**
+   - Следуй инструкциям, ибо правила - есть правила
+   - **Удостоверься**, что всё **в порядке**
 
-3. **Setting up your *IDE***
+3. **Настраиваем твою *ИСР* (IDE)**
 
-   - List of what you **need**
-      + **Flutter extension** (also includes **dart**)
-      + **Flutter Intl**
+   - Список **требований**
+      + **Flutter extension** (содержит в себе **dart**)
+      + **Flutter Intl** - интернационализация! Ю-ху!
 
-   - Find instructions for your IDE about how to set up them
+   </br>
 
-   - Read description for each extensions to have idea what they're include
+   - Найди способ установить эти расширения в свою ИСР
 
-   - **Don't forget** to **restart** your IDE after all manipulations
+   - Прочитай описания расширений! Ты же должен знать, что они тебе дают!
 
-4. **Finally, setting up all *dependencies***
+   - **Не забудь перезапустить** свою ИСР после этого безумия!
 
-   - Just open **terminal** in cloned repo and **run** the following command:
-      + *flutter pub get*
+4. **Наконец-таки! Устанавливаем все *зависимости***
 
+   - Просто открой **терминал** в клонированном тобою репозитории и **запусти** эти команды:
+
+      + `flutter pub get` - получите, зависимости!
+      + `flutter doctor` - проверить, всё ли в поряде.
+      </br>
+      Не парься из-за **Android Studio**! Игнорируй - побеждай
+   </br>
    - Also check all dependencies in **pubsec.yaml** file to know what you'll install
 
-      *probably you also need restart your IDE here*
+      *возможно потребуется ещё одна перезагрузка ИСР*
 
-5. **Now, what you can do?**
+5. **Итак, что же ты обрёл?**
 
-   - Build that app into web version
+   - Возможность собирать приложение для браузера
 
-      + For that you need **Google Chrome**
+      + Для этого понадобится **Google Chrome**
 
-      + Make sure that your IDE Flutter extension see Chrome as a device for building
+      + Удостоверься, что **Flutter дополнение для твоей ИСР** видит Chrome как устройство для работы
 
-         should be something like this
+         должно выглядеть примерно так
 
          ![png](https://i.imgur.com/HX6TU2Q.png)
 
-      + Just try **run and debug** your app from **main.dart** **path: *lib/project/domain/***
+      + Просто попробуй **запустить с отладкой** приложение из **main.dart** **путь: *lib/project/domain/***
 
-         You should see something like this:
+         ты увидешь что-то такое:
 
          ![png](https://i.imgur.com/EaSiRXm.png)
 
-   - You can run this app in android simulator
-   - All Flutter features now in your hands! Enjoy it!
+   - Ты можешь запускать это приложение в симуляторе андроида
+   - Все плюшки Flutter в твоих руках! Наслаждайся!
 
-      **But remember!**
+---
 
-      *With the great power... aah.. shut up!*
+## **Но помни!**
 
-[1]: (https://flutter.dev/docs/get-started/install)
-
+> *С великой силой... ааа.. молчи уже!*
