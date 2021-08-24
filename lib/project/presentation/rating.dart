@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rrw_mvc_refac/project/domain/const.dart';
 
 import '../../generated/l10n.dart';
 
 import 'post_rating.dart';
-
-const int RR_FRACTION_ID = 0;
-const int PR_FRACTION_ID = 1;
-const int TK_FRACTION_ID = 2;
-
-const int RR_TEAM_AMOUNT = 6;
-const int PR_TEAM_AMOUNT = 3;
-const int TK_TEAM_AMOUNT = 4;
 
 void initFractions() {
   rrFraction.initFraction();
