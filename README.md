@@ -57,7 +57,7 @@
       </br>
       Не парься из-за **Android Studio**! Игнорируй - побеждай
    </br>
-   - Also check all dependencies in **pubsec.yaml** file to know what you'll install
+   - Так же посмотри, что ты устанавливаешь в **pubsec.yaml** файле
 
       *возможно потребуется ещё одна перезагрузка ИСР*
 
