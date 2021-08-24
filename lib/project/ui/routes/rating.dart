@@ -3,7 +3,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../../generated/l10n.dart';
 
-import '../../controllers/rating.dart';
+import '../../controllers/rating_controller.dart';
 import '../../presentation/rating.dart';
 
 class RatingPage extends StatefulWidget {
@@ -33,8 +33,9 @@ class _RatingPage extends StateMVC<RatingPage> {
       floatingActionButton: FloatingActionButton(
         child: Text('update rating'),
         onPressed: () { //обновление рейтинга произойдёт при нажатии на кнопку
-          setState(() {_con.updateRating();});
-                         
+          setState(() {
+            _con.updateRating();
+          });               
         },
       ),
       appBar: AppBar(
@@ -47,7 +48,7 @@ class _RatingPage extends StateMVC<RatingPage> {
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemBuilder: (BuildContext _, int fractionIndex) {
+        itemBuilder: (BuildContext context, int fractionIndex) {
           return Column(
             children: [
               Container(
@@ -88,7 +89,7 @@ class FractionWidget extends StatelessWidget {
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemBuilder: (BuildContext context, int teamIndex) => TeamWidget(team: currFraction.teamList[teamIndex],),
+      itemBuilder: (BuildContext _, int teamIndex) => TeamWidget(team: currFraction.teamList[teamIndex],),
       separatorBuilder: (BuildContext _, int teamIndex) =>  Divider(
           height: 1.0,
           indent: Theme.of(context).dividerTheme.indent,

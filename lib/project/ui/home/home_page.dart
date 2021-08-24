@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
-import '../../controllers/home.dart';
+import '../../controllers/home_controller.dart';
 import '../../presentation/tab.dart';
 
 import 'bottom_navigation.dart';
