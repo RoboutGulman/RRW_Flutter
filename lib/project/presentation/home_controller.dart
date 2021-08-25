@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-import '../presentation/tab.dart';
+import 'tab.dart';
 
 class HomeController extends ControllerMVC {
   static late HomeController _this;

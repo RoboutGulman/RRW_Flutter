@@ -1,8 +1,8 @@
 import 'package:mvc_pattern/mvc_pattern.dart';
 
-import '../presentation/rating.dart';
+import 'rating.dart';
 import '../data/server.dart';
-import '../presentation/post_rating.dart';
+import 'post_rating.dart';
 
 class RatingController extends ControllerMVC {
 

@@ -2,13 +2,13 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import '../../generated/l10n.dart';
-import '../ui/home/home_page.dart';
-import '../ui/theme.dart';
+import '../generated/l10n.dart';
+import 'ui/home/home_page.dart';
+import 'ui/theme.dart';
 
 
-import '../ui/title_page.dart';
-import '../ui/login.dart';
+import 'ui/title_page.dart';
+import 'ui/login_page.dart';
 //import 'project/pages/fraction/fraction_page.dart';
 //import 'project/pages/Fraction/rrteam_page.dart';
 //import 'project/pages/Fraction/tkteam_page.dart';
