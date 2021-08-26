@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../presentation/tab.dart';
 
-import '../bank.dart';
-import '../executions.dart';
-import '../orders.dart';
+import '../bank_page.dart';
+import '../executions_page.dart';
+import '../orders_page.dart';
 import '../rating/rating_page.dart';
 
 class TabNavigator extends StatelessWidget {
