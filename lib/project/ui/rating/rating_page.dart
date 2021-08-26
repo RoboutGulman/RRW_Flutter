@@ -22,7 +22,7 @@ class _RatingPage extends StateMVC<RatingPage> {
     //но в _con.updateRating(); не срабатывает метод setState, просто отказывается входить в него
     //может быть проблема в том, как я построил RatingPage:
     //RatingPage содержит State (расширял от StateMVC), и при обновлении setState он должен перестроится вместе с детьми,
-    //его детей я расширял от Statless и моет быть в этом проблема
+    //его детей я расширял от Statless и может быть в этом проблема
     _con.updateRating();
     //в общем, главный вопрос: почему не срабатывает setState в методе контроллера??
   }
@@ -48,26 +48,27 @@ class _RatingPage extends StateMVC<RatingPage> {
         centerTitle: true,
       ),
       body: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (BuildContext _, int fractionIndex) {
-            return Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.only(left: 12.0),
-                  color: Theme.of(context).unselectedWidgetColor,
-                  width: MediaQuery.of(context).size.width,
-                  height: 44,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(fractionNamesList[fractionIndex],
-                        style: Theme.of(context).primaryTextTheme.headline2),
-                  ),
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (BuildContext _, int fractionIndex) {
+          return Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.only(left: 12.0),
+                color: Theme.of(context).unselectedWidgetColor,
+                width: MediaQuery.of(context).size.width,
+                height: 44,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(fractionNamesList[fractionIndex],
+                      style: Theme.of(context).primaryTextTheme.headline2),
                 ),
-                FractionWidget(fractionId: fractionIndex),
-              ],
-            );
-          },
-          itemCount: fractionNamesList.length),
+              ),
+              FractionWidget(fractionId: fractionIndex),
+            ],
+          );
+        },
+        itemCount: fractionNamesList.length,
+      ),
     );
   }
 }

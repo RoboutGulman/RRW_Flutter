@@ -63,27 +63,28 @@ class TeamWidget extends StatelessWidget {
     final List<String> rateChangeElements = getFormatedStatsOfTeam();
 
     return Container(
-        padding: const EdgeInsets.only(top: 3),
-        child: GridView.count(
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          crossAxisCount: 2,
-          childAspectRatio: MediaQuery.of(context).size.width / 40.39,
-          children: <Widget>[
-            Text(
-              rateChangeElements[0],
-              style: Theme.of(context).primaryTextTheme.subtitle1,
-            ),
-            Text(
-              rateChangeElements[1],
-              style: Theme.of(context).primaryTextTheme.subtitle1,
-            ),
-            Text(
-              rateChangeElements[2],
-              style: Theme.of(context).primaryTextTheme.subtitle1,
-            ),
-          ],
-        ));
+      padding: const EdgeInsets.only(top: 3),
+      child: GridView.count(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        crossAxisCount: 2,
+        childAspectRatio: MediaQuery.of(context).size.width / 40.39,
+        children: <Widget>[
+          Text(
+            rateChangeElements[0],
+            style: Theme.of(context).primaryTextTheme.subtitle1,
+          ),
+          Text(
+            rateChangeElements[1],
+            style: Theme.of(context).primaryTextTheme.subtitle1,
+          ),
+          Text(
+            rateChangeElements[2],
+            style: Theme.of(context).primaryTextTheme.subtitle1,
+          ),
+        ],
+      ),
+    );
   }
 
   Widget buildRating(BuildContext context) {
@@ -198,7 +199,6 @@ class _TeamColor {
   Color getColor(int teamId) {
     return this.teamColor[teamId];
   }
-
 }
 
 class TeamIcons {

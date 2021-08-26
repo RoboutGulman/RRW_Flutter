@@ -18,7 +18,7 @@ class FractionWidget extends StatelessWidget {
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemBuilder: (BuildContext context, int teamIndex) => TeamWidget(
+      itemBuilder: (BuildContext _, int teamIndex) => TeamWidget(
         team: currFraction.teamList[teamIndex],
       ),
       separatorBuilder: (BuildContext _, int teamIndex) => Divider(
