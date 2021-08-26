@@ -19,12 +19,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en_US';
 
+  static String m0(login) => "Welcome, ${login}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "button": MessageLookupByLibrary.simpleMessage("OK"),
-        "error1": MessageLookupByLibrary.simpleMessage("Error!"),
-        "error2": MessageLookupByLibrary.simpleMessage(
-            "The username cannot be empty."),
+        "button": MessageLookupByLibrary.simpleMessage("Enter"),
         "fractionName1": MessageLookupByLibrary.simpleMessage("RAILWAYS"),
         "fractionName2": MessageLookupByLibrary.simpleMessage("POLITICANS"),
         "fractionName3":
@@ -46,19 +45,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "rrTeamNames4": MessageLookupByLibrary.simpleMessage("Southwest"),
         "rrTeamNames5": MessageLookupByLibrary.simpleMessage("Pacific"),
         "rrTeamNames6": MessageLookupByLibrary.simpleMessage("South-eastern"),
+        "snakbar": m0,
         "success":
             MessageLookupByLibrary.simpleMessage("The username is saved"),
         "tabName1": MessageLookupByLibrary.simpleMessage("Rating"),
         "tabName2": MessageLookupByLibrary.simpleMessage("Orders"),
         "tabName3": MessageLookupByLibrary.simpleMessage("Execution"),
         "tabName4": MessageLookupByLibrary.simpleMessage("Bank"),
-        "text_field": MessageLookupByLibrary.simpleMessage("Login"),
+        "text_field_login": MessageLookupByLibrary.simpleMessage("Login"),
+        "text_field_room_id":
+            MessageLookupByLibrary.simpleMessage("session ID"),
         "tkRatingStat1": MessageLookupByLibrary.simpleMessage("R/W"),
         "tkRatingStat2": MessageLookupByLibrary.simpleMessage("customs"),
         "tkRatingStat3": MessageLookupByLibrary.simpleMessage("transportation"),
         "tkTeamNames1": MessageLookupByLibrary.simpleMessage("Washington TK"),
         "tkTeamNames2": MessageLookupByLibrary.simpleMessage("Prescott TK"),
         "tkTeamNames3": MessageLookupByLibrary.simpleMessage("Little Rock TK"),
-        "tkTeamNames4": MessageLookupByLibrary.simpleMessage("Bismarck TK")
+        "tkTeamNames4": MessageLookupByLibrary.simpleMessage("Bismarck TK"),
+        "wrong_login":
+            MessageLookupByLibrary.simpleMessage("Please enter your login."),
+        "wrong_room_id":
+            MessageLookupByLibrary.simpleMessage("Please enter ID session.")
       };
 }

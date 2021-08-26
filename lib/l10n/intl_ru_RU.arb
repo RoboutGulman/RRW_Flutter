@@ -7,13 +7,16 @@
 
   "login_page":"Авторизация",
 
-  "text_field":"Логин",
-  "error1":"Ошибка!",
-  "error2":"Логин не может быть пустым.",
+  "text_field_login":"Логин",
+  "text_field_room_id":"ID сессии",
+  "wrong_login":"Пожалуйста введите свой логин.",
+  "wrong_room_id":"Пожалуйста введите ID сессии",
+
 
   "success":"Логин сохранён",
 
-  "button":"OK",
+  "button":"Войти",
+  "snakbar":"Добро пожаловать, {login}",
 
   "rrRatingStat1":"пассажиры",
   "rrRatingStat2":"кредиты",

@@ -5,8 +5,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> runTitle(context) async {
   await Future.delayed(Duration(seconds: 3));
-  SharedPreferences preferences = await SharedPreferences.getInstance();
-  String? value = preferences.getString('login');
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.remove("login"); //убрать
+  String? value = prefs.getString('login');
   if (value == null) {
     Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
   } else {

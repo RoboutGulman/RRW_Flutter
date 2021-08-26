@@ -7,13 +7,15 @@
 
   "login_page":"Authorization",
 
-  "text_field":"Login",
-  "error1":"Error!",
-  "error2":"The username cannot be empty.",
+  "text_field_login":"Login",
+  "text_field_room_id":"session ID",
+  "wrong_login":"Please enter your login.",
+  "wrong_room_id":"Please enter ID session.",
 
   "success":"The username is saved",
 
-  "button":"OK",
+  "button":"Enter",
+  "snakbar":"Welcome, {login}",
 
   "rrRatingStat1":"passengers",
   "rrRatingStat2":"loans",

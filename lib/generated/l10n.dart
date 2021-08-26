@@ -101,30 +101,40 @@ class S {
   }
 
   /// `Логин`
-  String get text_field {
+  String get text_field_login {
     return Intl.message(
       'Логин',
-      name: 'text_field',
+      name: 'text_field_login',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ошибка!`
-  String get error1 {
+  /// `ID сессии`
+  String get text_field_room_id {
     return Intl.message(
-      'Ошибка!',
-      name: 'error1',
+      'ID сессии',
+      name: 'text_field_room_id',
       desc: '',
       args: [],
     );
   }
 
-  /// `Логин не может быть пустым.`
-  String get error2 {
+  /// `Пожалуйста введите свой логин.`
+  String get wrong_login {
     return Intl.message(
-      'Логин не может быть пустым.',
-      name: 'error2',
+      'Пожалуйста введите свой логин.',
+      name: 'wrong_login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пожалуйста введите ID сессии`
+  String get wrong_room_id {
+    return Intl.message(
+      'Пожалуйста введите ID сессии',
+      name: 'wrong_room_id',
       desc: '',
       args: [],
     );
@@ -140,13 +150,23 @@ class S {
     );
   }
 
-  /// `OK`
+  /// `Войти`
   String get button {
     return Intl.message(
-      'OK',
+      'Войти',
       name: 'button',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Добро пожаловать, {login}`
+  String snakbar(Object login) {
+    return Intl.message(
+      'Добро пожаловать, $login',
+      name: 'snakbar',
+      desc: '',
+      args: [login],
     );
   }
 

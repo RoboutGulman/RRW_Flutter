@@ -19,12 +19,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru_RU';
 
+  static String m0(login) => "Добро пожаловать, ${login}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "button": MessageLookupByLibrary.simpleMessage("OK"),
-        "error1": MessageLookupByLibrary.simpleMessage("Ошибка!"),
-        "error2":
-            MessageLookupByLibrary.simpleMessage("Логин не может быть пустым."),
+        "button": MessageLookupByLibrary.simpleMessage("Войти"),
         "fractionName1":
             MessageLookupByLibrary.simpleMessage("ЖЕЛЕЗНЫЕ ДОРОГИ"),
         "fractionName2": MessageLookupByLibrary.simpleMessage("ПОЛИТИКИ"),
@@ -46,18 +45,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "rrTeamNames4": MessageLookupByLibrary.simpleMessage("Юго-западная"),
         "rrTeamNames5": MessageLookupByLibrary.simpleMessage("Тихоокеанская"),
         "rrTeamNames6": MessageLookupByLibrary.simpleMessage("Юго-восточная"),
+        "snakbar": m0,
         "success": MessageLookupByLibrary.simpleMessage("Логин сохранён"),
         "tabName1": MessageLookupByLibrary.simpleMessage("Рейтинг"),
         "tabName2": MessageLookupByLibrary.simpleMessage("Приказы"),
         "tabName3": MessageLookupByLibrary.simpleMessage("Исполнение"),
         "tabName4": MessageLookupByLibrary.simpleMessage("Банк"),
-        "text_field": MessageLookupByLibrary.simpleMessage("Логин"),
+        "text_field_login": MessageLookupByLibrary.simpleMessage("Логин"),
+        "text_field_room_id": MessageLookupByLibrary.simpleMessage("ID сессии"),
         "tkRatingStat1": MessageLookupByLibrary.simpleMessage("ж/д"),
         "tkRatingStat2": MessageLookupByLibrary.simpleMessage("таможня"),
         "tkRatingStat3": MessageLookupByLibrary.simpleMessage("перевозки"),
         "tkTeamNames1": MessageLookupByLibrary.simpleMessage("ТК Вашингтона"),
         "tkTeamNames2": MessageLookupByLibrary.simpleMessage("ТК Прескотта"),
         "tkTeamNames3": MessageLookupByLibrary.simpleMessage("ТК Литл-Рока"),
-        "tkTeamNames4": MessageLookupByLibrary.simpleMessage("ТК Бисмарка")
+        "tkTeamNames4": MessageLookupByLibrary.simpleMessage("ТК Бисмарка"),
+        "wrong_login": MessageLookupByLibrary.simpleMessage(
+            "Пожалуйста введите свой логин."),
+        "wrong_room_id":
+            MessageLookupByLibrary.simpleMessage("Пожалуйста введите ID сессии")
       };
 }
