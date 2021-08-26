@@ -38,7 +38,7 @@ class AppEntrance extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
-          '/': (context) => TitlePage(),
+          '/': (context) => HomePage(),
           '/home': (context) => HomePage(),
           '/login': (context) => LoginPage(),
           //'/Fraction':(context)=>FractionPage(),

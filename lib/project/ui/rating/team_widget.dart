@@ -4,8 +4,6 @@ import 'package:rrw_mvc_refac/generated/l10n.dart';
 import 'package:rrw_mvc_refac/project/domain/const.dart';
 import 'package:rrw_mvc_refac/project/domain/team.dart';
 
-_TeamColor _teamColor = _TeamColor();
-
 class TeamWidget extends StatelessWidget {
   final Team team;
 
@@ -35,7 +33,7 @@ class TeamWidget extends StatelessWidget {
         alignment: Alignment.center,
         child: Icon(
           _FractionIcon().getTeamIcon(team.fractionId),
-          color: _teamColor.getColor(),
+          color: _TeamColor().getColor(team.id),
         ),
       ),
     );
@@ -137,11 +135,11 @@ class TeamWidget extends StatelessWidget {
 
   String getFormatedRatingDynamic(Team team) {
     int sumOfStats = 0;
-    var statsValue = _StatisticValue().initStatsValue();
 
-    statsValue.forEach((stat) {
-      sumOfStats += stat!;
+    team.stats.forEach((stat) {
+      sumOfStats += stat;
     });
+
     if (sumOfStats >= 0) {
       return '+$sumOfStats';
     } else {
@@ -211,32 +209,10 @@ class _TeamColor {
 
   _TeamColor();
 
-  Color getColor() {
-    if (this.teamColor.isNotEmpty) {
-      return _popedColor();
-    } else {
-      _initColor();
-      return _popedColor();
-    }
+  Color getColor(int teamId) {
+    return this.teamColor[teamId];
   }
 
-  void _initColor() {
-    this.teamColor = <Color>[
-      Colors.black,
-      Colors.blue,
-      Colors.green,
-      Colors.orange,
-      Colors.pink,
-      Colors.purple,
-      Colors.red,
-      Colors.yellow,
-      Colors.indigo,
-    ];
-  }
-
-  Color _popedColor() {
-    return this.teamColor.removeLast();
-  }
 }
 
 class TeamIcons {
