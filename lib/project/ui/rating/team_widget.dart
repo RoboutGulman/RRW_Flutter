@@ -180,20 +180,6 @@ class _StatisticDescription {
   }
 }
 
-class _StatisticValue {
-  List<int> statsValue = [
-    0, //Stat1
-    0, //Stat2
-    0, //Stat3
-  ];
-
-  _StatisticValue();
-
-  List<int?> initStatsValue() {
-    return statsValue;
-  }
-}
-
 class _TeamColor {
   List<Color> teamColor = <Color>[
     Colors.black,
