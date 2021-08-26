@@ -103,8 +103,6 @@ _TeamNames teamNames = _TeamNames();
 void updateRatingBy(GameRating gameRating) {
   int updatedTeamAmount = 0; //as teamId, both means same
 
-  print("i can't reach that code!!!");
-
   fraction.forEach((Fraction fraction) {
     List<TeamInfo> fractionRating = gameRating.getFractionInfoBy(fraction.id);
 

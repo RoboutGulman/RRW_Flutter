@@ -5,7 +5,7 @@ import '../../../generated/l10n.dart';
 
 import '../../presentation/rating_controller.dart';
 import '../../presentation/rating.dart';
-import '../fraction_widget.dart';
+import 'fraction_widget.dart';
 
 class RatingPage extends StatefulWidget {
   @override

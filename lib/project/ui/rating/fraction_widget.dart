@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rrw_mvc_refac/project/presentation/rating_controller.dart';
 import 'package:rrw_mvc_refac/project/presentation/rating.dart';
-import 'rating/team_widget.dart';
+import 'team_widget.dart';
 
 class FractionWidget extends StatelessWidget {
   final int fractionId;
