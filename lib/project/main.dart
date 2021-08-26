@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '../generated/l10n.dart';
 import 'ui/home/home_page.dart';
+import 'ui/team_choose_page.dart';
 import 'ui/theme.dart';
 
 
@@ -38,9 +39,10 @@ class AppEntrance extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
-          '/': (context) => HomePage(),
+          '/': (context) => TitlePage(),
           '/home': (context) => HomePage(),
           '/login': (context) => LoginPage(),
+          '/choose_team': (context) => TeamChoose(),
           //'/Fraction':(context)=>FractionPage(),
           //'/Fraction/rrTeam':(context)=>RRTeamPage(),
           //'/Fraction/prTeam':(context)=>PRTeamPage(),

@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/png/
     - assets/svg/
+    - assets/svg/tab_nav/
 
   fonts:
     - family: CustomIcons

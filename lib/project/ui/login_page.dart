@@ -72,7 +72,6 @@ class _LoginPageState extends State {
                         backgroundColor: Colors.green,
                       ),
                     );
-                    prefs.remove("login"); //убрать
                     Navigator.pushNamedAndRemoveUntil(
                         context, '/home', (route) => false);
                   }
