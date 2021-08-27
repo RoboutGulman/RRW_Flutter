@@ -4,7 +4,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import '/generated/l10n.dart';
 
 import '../../../domain/rating/team.dart';
-import '../../../presentation/rating_controller.dart';
+import '../../../presentation/team_choose_controller.dart';
 import 'team_widget.dart';
 
 class TeamChoose extends StatefulWidget {
@@ -15,16 +15,26 @@ class TeamChoose extends StatefulWidget {
 }
 
 class _TeamChooseState extends StateMVC<TeamChoose> {
-  final RatingController _con = RatingController();
+  final TeamChooseController _con = TeamChooseController();
+  final double _teamButtonHeight = 45;
+  bool _isRemoved = false;
 
-  
+  @override
+  void initState() {
+    super.initState();
+    //получаем "список" доступных команд
+    //будет доступно столько же, сколько передано в параметре
+    setState(() {_con.generateAvailableTeam(8);});
+    //странно, вроде страничка вышла проще по вложенности виджетов состояния,
+    //но метод setState все равно не доступен при вызове из контроллера
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'S.of(context).team_choose_page',
+          S.of(context).team_choose_page,
           style: Theme.of(context).primaryTextTheme.headline1,
         ),
         backgroundColor: Theme.of(context).backgroundColor,
@@ -34,37 +44,61 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
         physics: const BouncingScrollPhysics(),
         itemBuilder: (BuildContext _, int fractionIndex) {
           List<bool> _isSelected = List.generate(
-            _con.fractions[1].teamList.length,
-            (index) => false
-          );
+              _con.fractions[fractionIndex].teamList.length, (index) => false);
 
           return Column(
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 12.0),
-                color: Theme.of(context).unselectedWidgetColor,
+                padding: EdgeInsets.only(left: 12.0),
+                height: _teamButtonHeight,
+                color: Theme.of(context).primaryColorLight,
                 width: MediaQuery.of(context).size.width,
-                height: 44,
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(_con.fractionNamesList[1],
-                      style: Theme.of(context).primaryTextTheme.headline5),
+                  child: Text(_con.fractionNamesList[fractionIndex],
+                      style: Theme.of(context).primaryTextTheme.headline2),
                 ),
               ),
               Container(
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return ToggleButtons(
-                      children: _ClickableTeamList(1),
-                      isSelected: _isSelected,
-                      constraints: BoxConstraints.expand(width: constraints.maxWidth, height: 50),
-                      renderBorder: true,
-                      direction: Axis.vertical,
-                    );
-                  }
-                ),
+                height: _teamButtonHeight *
+                    _con.fractions[fractionIndex].teamList.length,
+                child: LayoutBuilder(builder: (context, constraints) {
+                  return ToggleButtons(
+                    children: _ClickableTeamList(fractionIndex),
+                    isSelected: _isSelected,
+                    onPressed: (int selectedIndex) { //здесь можно ловить выбор пользователя
+
+                      if (!_isRemoved) { //пока что убираем единожды
+                        setState(() {_con.removeUnavailableTeam();});
+                        _isRemoved = !_isRemoved;
+                      } //можно убирать сразу по нажатию на команду
+
+                      for (var index = 0; index < _isSelected.length; index++) {
+                        //логирую, какая команда была "выбрана"
+                        //и ещё переключаю элементы важного списка
+                        if (index == selectedIndex) {
+                          _isSelected[selectedIndex] = true;
+                          print('''Selected: 
+                            ${_con.fractions[fractionIndex].teamList[selectedIndex].name},
+                            id: ${_con.fractions[fractionIndex].teamList[selectedIndex].id_global}
+                          ''');
+                        } else {
+                          _isSelected[selectedIndex] = false;
+                        }
+                      }
+                    },
+                    constraints: BoxConstraints.expand(
+                      width: constraints.maxWidth,
+                      height: constraints.maxHeight /
+                          _con.fractions[fractionIndex].teamList.length,
+                    ),
+                    renderBorder: true,
+                    disabledBorderColor: Theme.of(context).primaryColorLight,
+                    borderWidth: 0,
+                    direction: Axis.vertical,
+                  );
+                }),
               ),
-              
             ],
           );
         },

@@ -10,51 +10,60 @@ class TeamWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(15, 10, 15, 5),
-      height: 70,
+      padding: EdgeInsets.only(left: 10, right: 10),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          buildIcon(),
-          Text(team.name),
+          _buildIcon(),
+          _buildName(context),
+          _buildArrow(context),
         ],
       ),
     );
   }
 
-  Widget buildIcon() {
+  Widget _buildIcon() {
     return Flexible(
       fit: FlexFit.tight,
-      flex: 2,
-      child: Container(
-        alignment: Alignment.center,
+      flex: 1,
+      child: Center(
         child: Icon(
-          _FractionIcon().getTeamIcon(team.fractionId),
-          color: _TeamColor().getColor(team.id),
+          _FractionIcon()._getTeamIcon(team.fractionId),
+          color: _TeamColor()._getColor(team.id),
         ),
       ),
     );
   }
 
-  Widget buildName(BuildContext context) {
+  Widget _buildName(BuildContext context) {
     return Flexible(
       fit: FlexFit.tight,
-      flex: 8,
+      flex: 10,
       child: Container(
-        height: 60,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              team.name,
-              style: Theme.of(context).primaryTextTheme.subtitle2,
-            ),
-          ],
+        alignment: Alignment.centerLeft,
+        child: Text(
+          team.name,
+          style: Theme.of(context).primaryTextTheme.subtitle2,
         ),
       ),
     );
   }
 
+  Widget _buildArrow(BuildContext context) {
+    return Flexible(
+      fit: FlexFit.tight,
+      flex: 1,
+      child: Container(
+        child: Center(
+          child: Icon(
+            Icons.arrow_forward_ios,
+            size: 20,
+            color: Theme.of(context).unselectedWidgetColor,
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _TeamColor {
@@ -72,7 +81,7 @@ class _TeamColor {
 
   _TeamColor();
 
-  Color getColor(int teamId) {
+  Color _getColor(int teamId) {
     return this.teamColor[teamId];
   }
 }
@@ -96,7 +105,7 @@ class _FractionIcon {
 
   _FractionIcon();
 
-  IconData getTeamIcon(int fractionId) {
+  IconData _getTeamIcon(int fractionId) {
     return fractionsTeamIcons[fractionId];
   }
 }
