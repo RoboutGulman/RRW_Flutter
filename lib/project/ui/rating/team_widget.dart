@@ -17,23 +17,23 @@ class TeamWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          buildIcon(),
-          buildName(context),
-          buildRating(context),
+          _buildIcon(),
+          _buildName(context),
+          _buildRating(context),
         ],
       ),
     );
   }
 
-  Widget buildIcon() {
+  Widget _buildIcon() {
     return Flexible(
       fit: FlexFit.tight,
       flex: 2,
       child: Container(
         alignment: Alignment.center,
         child: Icon(
-          _FractionIcon().getTeamIcon(team.fractionId),
-          color: _TeamColor().getColor(team.id),
+          _FractionIcon()._getTeamIcon(team.fractionId),
+          color: _TeamColor()._getColor(team.id),
         ),
       ),
     );
@@ -41,7 +41,7 @@ class TeamWidget extends StatelessWidget {
 
   //TODO:
   //название виджета не соответствует тому, что он отстраивает
-  Widget buildName(BuildContext context) {
+  Widget _buildName(BuildContext context) {
     return Flexible(
       fit: FlexFit.tight,
       flex: 8,
@@ -54,15 +54,15 @@ class TeamWidget extends StatelessWidget {
               team.name,
               style: Theme.of(context).primaryTextTheme.subtitle2,
             ),
-            buildRateStatistics(context),
+            _buildRateStatistics(context),
           ],
         ),
       ),
     );
   }
 
-  Widget buildRateStatistics(BuildContext context) {
-    final List<String> rateChangeElements = getFormatedStatsOfTeam();
+  Widget _buildRateStatistics(BuildContext context) {
+    final List<String> rateChangeElements = _getFormatedStatsOfTeam();
 
     return Container(
       padding: const EdgeInsets.only(top: 3),
@@ -89,7 +89,7 @@ class TeamWidget extends StatelessWidget {
     );
   }
 
-  Widget buildRating(BuildContext context) {
+  Widget _buildRating(BuildContext context) {
     return Flexible(
       fit: FlexFit.tight,
       flex: 2,
@@ -103,7 +103,7 @@ class TeamWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(top: 3),
             child: Text(
-              '${getFormatedRatingDynamic(team)}',
+              '${_getFormatedRatingDynamic(team)}',
               style: Theme.of(context).primaryTextTheme.headline3,
             ),
           ),
@@ -112,11 +112,11 @@ class TeamWidget extends StatelessWidget {
     );
   }
 
-  List<String> getFormatedStatsOfTeam() {
+  List<String> _getFormatedStatsOfTeam() {
     String statsAnswerAll = '';
 
     List<String> statsAnswers = <String>['', '', ''];
-    var statsDescrp = _StatisticDescription().getStatsDescrp(team.fractionId);
+    var statsDescrp = _StatisticDescription()._getStatsDescrp(team.fractionId);
 
     team.stats.forEach((value) {
       if (value >= 0) {
@@ -136,7 +136,7 @@ class TeamWidget extends StatelessWidget {
     return statsAnswers;
   }
 
-  String getFormatedRatingDynamic(Team team) {
+  String _getFormatedRatingDynamic(Team team) {
     int sumOfStats = 0;
 
     team.stats.forEach((stat) {
@@ -170,7 +170,7 @@ class _StatisticDescription {
 
   _StatisticDescription();
 
-  List<String> getStatsDescrp(int fractionId) {
+  List<String> _getStatsDescrp(int fractionId) {
     switch (fractionId) {
       case RR_FRACTION_ID:
         return rrStats;
@@ -198,7 +198,7 @@ class _TeamColor {
 
   _TeamColor();
 
-  Color getColor(int teamId) {
+  Color _getColor(int teamId) {
     return this.teamColor[teamId];
   }
 }
@@ -222,7 +222,7 @@ class _FractionIcon {
 
   _FractionIcon();
 
-  IconData getTeamIcon(int fractionId) {
+  IconData _getTeamIcon(int fractionId) {
     return fractionsTeamIcons[fractionId];
   }
 }
