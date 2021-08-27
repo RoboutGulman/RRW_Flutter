@@ -17,6 +17,8 @@
   "button":"Enter",
   "snakbar":"Welcome, {login}",
 
+  "team_choose_page": "Choose team",
+
   "rrRatingStat1":"passengers",
   "rrRatingStat2":"loans",
   "rrRatingStat3":"traffic",

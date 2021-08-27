@@ -101,6 +101,11 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
         fontSize: 20,
         fontWeight: FontWeight.w400,
       ),
+      headline5: TextStyle(
+        color: Colors.black,
+        fontSize: 13.0,
+        fontWeight: FontWeight.w600,
+      ),
       //названия параметров команд(пассажиры и т.д.)
       subtitle1: TextStyle(
         color: Color.fromRGBO(60, 60, 67, 0.6),

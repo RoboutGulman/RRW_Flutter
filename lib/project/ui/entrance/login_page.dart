@@ -73,7 +73,7 @@ class _LoginPageState extends State {
                       ),
                     );
                     Navigator.pushNamedAndRemoveUntil(
-                        context, '/home', (route) => false);
+                        context, '/choose-team', (route) => false);
                   }
                 },
                 child: Text(S.of(context).button),

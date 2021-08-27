@@ -18,6 +18,8 @@
   "button":"Войти",
   "snakbar":"Добро пожаловать, {login}",
 
+  "team_choose_page": "Выбери команду",
+
   "rrRatingStat1":"пассажиры",
   "rrRatingStat2":"кредиты",
   "rrRatingStat3":"грузы",
