@@ -7,7 +7,6 @@ import 'ui/home/home_page.dart';
 import 'ui/team_choose_page.dart';
 import 'ui/theme.dart';
 
-
 import 'ui/title_page.dart';
 import 'ui/login_page.dart';
 //import 'project/pages/fraction/fraction_page.dart';

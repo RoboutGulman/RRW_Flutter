@@ -2,8 +2,6 @@ import '../domain/const.dart';
 import '../domain/team.dart';
 import '../presentation/rating_controller.dart';
 
-import '../../generated/l10n.dart';
-
 import 'post_rating.dart';
 
 class Fraction {
@@ -25,7 +23,6 @@ class Fraction {
     this.teamList.add(Team(
           fractionId: this.id,
           id: this.teamNumber,
-          name: teamNames.popTeamName(this.id)
         ));
     this.teamNumber = this.teamList.length;
   }
@@ -63,8 +60,6 @@ class Fraction {
   }
 }
 
-_TeamNames teamNames = _TeamNames();
-
 void updateRatingBy(GameRating gameRating) {
   RatingController _con = RatingController.controller;
   int updatedTeamAmount = 0; //as teamId, both means same
@@ -94,34 +89,4 @@ void updateRatingBy(GameRating gameRating) {
     fraction.sortTeams();
     updatedTeamAmount = 0;
   });
-}
-
-class _TeamNames {
-  List<List<String>> teamNames = [
-    [
-      S.current.rrTeamNames1,
-      S.current.rrTeamNames2,
-      S.current.rrTeamNames3,
-      S.current.rrTeamNames4,
-      S.current.rrTeamNames5,
-      S.current.rrTeamNames6,
-    ],
-    [
-      S.current.prTeamNames1,
-      S.current.prTeamNames2,
-      S.current.prTeamNames3,
-    ],
-    [
-      S.current.tkTeamNames1,
-      S.current.tkTeamNames2,
-      S.current.tkTeamNames3,
-      S.current.tkTeamNames4,
-    ],
-  ];
-
-  _TeamNames();
-
-  String popTeamName(int fractionId) {
-    return this.teamNames[fractionId].removeAt(0);
-  }
 }
