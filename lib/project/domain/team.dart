@@ -5,7 +5,7 @@ class Team implements Comparable {
     required this.fractionId,
     required this.id,
   }) {
-    name = _TeamNames.popTeamName(this.fractionId, this.id);
+    name = _TeamNames.getTeamName(this.fractionId, this.id);
   }
 
   final int fractionId;
@@ -58,7 +58,7 @@ class _TeamNames {
 
   _TeamNames();
 
-  static String popTeamName(int fractionId, int teamId) {
+  static String getTeamName(int fractionId, int teamId) {
     return teamNames[fractionId][teamId];
   }
 }
