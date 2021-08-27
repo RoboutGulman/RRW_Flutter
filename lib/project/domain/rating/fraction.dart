@@ -9,6 +9,7 @@ class Fraction {
   final int id;
   final int maxTeamAmount;
   int teamNumber = 0;
+  static int globalTeamAmount = 0;
   List<Team> teamList = <Team>[];
 
   Fraction({required this.name, required this.id, required this.maxTeamAmount});
@@ -25,6 +26,7 @@ class Fraction {
           id: this.teamNumber,
         ));
     this.teamNumber = this.teamList.length;
+    globalTeamAmount++;
   }
 
   void removeTeam(int teamId) {
@@ -34,6 +36,7 @@ class Fraction {
       }
     });
     this.teamNumber = this.teamList.length;
+    globalTeamAmount--;
   }
 
   int getMaxTeamAmountOfThisFraction(int fractionId) {

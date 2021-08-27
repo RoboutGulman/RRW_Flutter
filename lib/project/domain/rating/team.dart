@@ -1,15 +1,19 @@
 import 'package:rrw_mvc_refac/generated/l10n.dart';
 
+import 'fraction.dart';
+
 class Team implements Comparable {
   Team({
     required this.fractionId,
     required this.id,
   }) {
-    name = _TeamNames.getTeamName(this.fractionId, this.id);
+    this.name = _TeamNames.getTeamName(this.fractionId, this.id);
+    this.id_global = Fraction.globalTeamAmount;
   }
 
   final int fractionId;
   final int id;
+  late int id_global;
   late String name;
 
   List<int> stats = [0, 0, 0];
