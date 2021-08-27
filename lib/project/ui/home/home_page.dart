@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../presentation/home_controller.dart';
-import '../../presentation/tab.dart';
+import '../../domain/tab.dart';
 
 import 'bottom_navigation.dart';
 import 'tab_navigator.dart';

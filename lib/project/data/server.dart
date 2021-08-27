@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import '../presentation/post_rating.dart';
+import '../domain/post_rating.dart';
 
 const String SERVER = 'https://rrw-test.herokuapp.com';
 
