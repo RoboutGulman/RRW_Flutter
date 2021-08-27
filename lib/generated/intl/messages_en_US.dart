@@ -45,6 +45,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "rrTeamNames4": MessageLookupByLibrary.simpleMessage("Southwest"),
         "rrTeamNames5": MessageLookupByLibrary.simpleMessage("Pacific"),
         "rrTeamNames6": MessageLookupByLibrary.simpleMessage("South-eastern"),
+        "second_fractionName1":
+            MessageLookupByLibrary.simpleMessage("Railroad workers"),
+        "second_fractionName2":
+            MessageLookupByLibrary.simpleMessage("Politicians"),
+        "second_fractionName3": MessageLookupByLibrary.simpleMessage("Traders"),
         "snakbar": m0,
         "success":
             MessageLookupByLibrary.simpleMessage("The username is saved"),
@@ -52,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tabName2": MessageLookupByLibrary.simpleMessage("Orders"),
         "tabName3": MessageLookupByLibrary.simpleMessage("Execution"),
         "tabName4": MessageLookupByLibrary.simpleMessage("Bank"),
+        "team_choose_page": MessageLookupByLibrary.simpleMessage("Choose team"),
         "text_field_login": MessageLookupByLibrary.simpleMessage("Login"),
         "text_field_room_id":
             MessageLookupByLibrary.simpleMessage("session ID"),

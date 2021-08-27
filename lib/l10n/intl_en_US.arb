@@ -45,5 +45,8 @@
 
   "fractionName1":"RAILWAYS",
   "fractionName2":"POLITICANS",
-  "fractionName3":"TRADING COMPANIES"
+  "fractionName3":"TRADING COMPANIES",
+  "second_fractionName1": "Railroad workers",
+  "second_fractionName2": "Politicians",
+  "second_fractionName3": "Traders"
 }

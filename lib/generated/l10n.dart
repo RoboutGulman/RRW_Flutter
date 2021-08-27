@@ -170,6 +170,16 @@ class S {
     );
   }
 
+  /// `Выбери команду`
+  String get team_choose_page {
+    return Intl.message(
+      'Выбери команду',
+      name: 'team_choose_page',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `пассажиры`
   String get rrRatingStat1 {
     return Intl.message(
@@ -415,6 +425,36 @@ class S {
     return Intl.message(
       'ТОРГОВЫЕ КОМПАНИИ',
       name: 'fractionName3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Железнодорожники`
+  String get second_fractionName1 {
+    return Intl.message(
+      'Железнодорожники',
+      name: 'second_fractionName1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Политики`
+  String get second_fractionName2 {
+    return Intl.message(
+      'Политики',
+      name: 'second_fractionName2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Торговцы`
+  String get second_fractionName3 {
+    return Intl.message(
+      'Торговцы',
+      name: 'second_fractionName3',
       desc: '',
       args: [],
     );

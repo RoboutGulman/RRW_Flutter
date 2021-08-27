@@ -46,5 +46,8 @@
 
   "fractionName1":"ЖЕЛЕЗНЫЕ ДОРОГИ",
   "fractionName2":"ПОЛИТИКИ",
-  "fractionName3":"ТОРГОВЫЕ КОМПАНИИ"
+  "fractionName3":"ТОРГОВЫЕ КОМПАНИИ",
+  "second_fractionName1": "Железнодорожники",
+  "second_fractionName2": "Политики",
+  "second_fractionName3": "Торговцы"
 }

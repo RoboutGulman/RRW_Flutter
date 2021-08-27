@@ -45,12 +45,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "rrTeamNames4": MessageLookupByLibrary.simpleMessage("Юго-западная"),
         "rrTeamNames5": MessageLookupByLibrary.simpleMessage("Тихоокеанская"),
         "rrTeamNames6": MessageLookupByLibrary.simpleMessage("Юго-восточная"),
+        "second_fractionName1":
+            MessageLookupByLibrary.simpleMessage("Железнодорожники"),
+        "second_fractionName2":
+            MessageLookupByLibrary.simpleMessage("Политики"),
+        "second_fractionName3":
+            MessageLookupByLibrary.simpleMessage("Торговцы"),
         "snakbar": m0,
         "success": MessageLookupByLibrary.simpleMessage("Логин сохранён"),
         "tabName1": MessageLookupByLibrary.simpleMessage("Рейтинг"),
         "tabName2": MessageLookupByLibrary.simpleMessage("Приказы"),
         "tabName3": MessageLookupByLibrary.simpleMessage("Исполнение"),
         "tabName4": MessageLookupByLibrary.simpleMessage("Банк"),
+        "team_choose_page":
+            MessageLookupByLibrary.simpleMessage("Выбери команду"),
         "text_field_login": MessageLookupByLibrary.simpleMessage("Логин"),
         "text_field_room_id": MessageLookupByLibrary.simpleMessage("ID сессии"),
         "tkRatingStat1": MessageLookupByLibrary.simpleMessage("ж/д"),
