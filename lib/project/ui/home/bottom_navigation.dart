@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../generated/l10n.dart';
-import '../../domain/tab.dart';
+import '../../domain/home/tab.dart';
 
 class MyBottomNavigation extends StatelessWidget {
   const MyBottomNavigation(

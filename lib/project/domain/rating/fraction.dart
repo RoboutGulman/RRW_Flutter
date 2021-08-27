@@ -1,6 +1,6 @@
-import '../domain/const.dart';
-import '../domain/team.dart';
-import '../presentation/rating_controller.dart';
+import '../const.dart';
+import 'team.dart';
+import '../../presentation/rating_controller.dart';
 
 import 'post_rating.dart';
 

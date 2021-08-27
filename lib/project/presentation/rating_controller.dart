@@ -1,8 +1,8 @@
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../domain/const.dart';
-import '../domain/fraction.dart';
-import '../domain/post_rating.dart';
+import '../domain/rating/fraction.dart';
+import '../domain/rating/post_rating.dart';
 import '../data/server.dart';
 
 import '/generated/l10n.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rrw_mvc_refac/generated/l10n.dart';
 import 'package:rrw_mvc_refac/project/domain/const.dart';
-import 'package:rrw_mvc_refac/project/domain/team.dart';
+import 'package:rrw_mvc_refac/project/domain/rating/team.dart';
 
 class TeamWidget extends StatelessWidget {
   final Team team;
