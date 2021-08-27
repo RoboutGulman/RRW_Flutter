@@ -39,6 +39,8 @@ class TeamWidget extends StatelessWidget {
     );
   }
 
+  //TODO:
+  //название виджета не соответствует тому, что он отстраивает
   Widget buildName(BuildContext context) {
     return Flexible(
       fit: FlexFit.tight,

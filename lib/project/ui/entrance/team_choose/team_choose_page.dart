@@ -3,7 +3,9 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '/generated/l10n.dart';
 
-import '../../presentation/rating_controller.dart';
+import '../../../domain/rating/team.dart';
+import '../../../presentation/rating_controller.dart';
+import 'team_widget.dart';
 
 class TeamChoose extends StatefulWidget {
   const TeamChoose({Key? key}) : super(key: key);
@@ -32,7 +34,7 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
         physics: const BouncingScrollPhysics(),
         itemBuilder: (BuildContext _, int fractionIndex) {
           List<bool> _isSelected = List.generate(
-            _con.fractions[fractionIndex].teamList.length,
+            _con.fractions[1].teamList.length,
             (index) => false
           );
 
@@ -45,21 +47,40 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
                 height: 44,
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(_con.fractionNamesList[fractionIndex],
+                  child: Text(_con.fractionNamesList[1],
                       style: Theme.of(context).primaryTextTheme.headline5),
                 ),
               ),
-              ToggleButtons(
-                children: <Widget>[
-
-                ],
-                isSelected: _isSelected,
+              Container(
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return ToggleButtons(
+                      children: _ClickableTeamList(1),
+                      isSelected: _isSelected,
+                      constraints: BoxConstraints.expand(width: constraints.maxWidth, height: 50),
+                      renderBorder: true,
+                      direction: Axis.vertical,
+                    );
+                  }
+                ),
               ),
+              
             ],
           );
         },
         itemCount: _con.fractionNamesList.length,
       ),
     );
+  }
+
+  List<Widget> _ClickableTeamList(int fractionId) {
+    List<Team> teams = _con.fractions[fractionId].teamList;
+
+    List<Widget> teamList = [];
+    teams.forEach((team) {
+      teamList.add(TeamWidget(team: team));
+    });
+
+    return teamList;
   }
 }
