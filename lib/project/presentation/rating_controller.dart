@@ -38,12 +38,6 @@ class RatingController extends ControllerMVC {
     S.current.fractionName2,
     S.current.fractionName3,
   ];
-
-  final List<String> second_fractionNamesList = [
-    S.current.second_fractionName1,
-    S.current.second_fractionName2,
-    S.current.second_fractionName3,
-  ];
   
   factory RatingController() {
     _this = RatingController._();
