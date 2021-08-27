@@ -1,12 +1,17 @@
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:rrw_mvc_refac/generated/l10n.dart';
 
+import '../data/server.dart';
 import '../domain/const.dart';
 import '../domain/rating/fraction.dart';
+import '../domain/rating/team.dart';
 
 class TeamChooseController extends ControllerMVC {
   static late TeamChooseController _this;
+  late List<int> _availableTeam = [];
+
   static TeamChooseController get controller => _this;
+  List<int> get availableTeamList => _availableTeam;
 
   final List<Fraction> fractions = <Fraction>[
     Fraction(
@@ -44,6 +49,24 @@ class TeamChooseController extends ControllerMVC {
   void _initFractions() {
     this.fractions.forEach((Fraction fraction) {
       fraction.initFraction();
+    });
+  }
+
+  generateAvailableTeam(int steps) async {
+    try {
+      _availableTeam =
+          await AvailableTeamRepository.generateAvailableTeam(steps);
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  removeUnavailableTeam() {
+    fractions.forEach((Fraction fraction) {
+      _availableTeam.forEach((int availableTeamId) {
+        fraction.teamList.removeWhere(
+            (Team team) => !_availableTeam.contains(team.id_global));
+      });
     });
   }
 }
