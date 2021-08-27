@@ -1,24 +1,52 @@
 import 'package:mvc_pattern/mvc_pattern.dart';
 
+import '../domain/const.dart';
 import '../domain/fraction.dart';
-import '../data/server.dart';
 import '../domain/post_rating.dart';
+import '../data/server.dart';
+
+import '/generated/l10n.dart';
 
 class RatingController extends ControllerMVC {
 
-  final RateChangeRepository repo = RateChangeRepository();
-
   static late RatingController _this;
 
+  final RateChangeRepository repo = RateChangeRepository();
+
+  static RatingController get controller => _this;
+  
+  final List<Fraction> fractions = <Fraction>[
+    Fraction(
+      name: S.current.fractionName1,
+      id: RR_FRACTION_ID,
+      maxTeamAmount: RR_TEAM_AMOUNT,
+    ),
+    Fraction(
+      name: S.current.fractionName2,
+      id: PR_FRACTION_ID,
+      maxTeamAmount: PR_TEAM_AMOUNT,
+    ),
+    Fraction(
+      name: S.current.fractionName3,
+      id: TK_FRACTION_ID,
+      maxTeamAmount: TK_TEAM_AMOUNT,
+    ),
+  ];
+  
+  final List<String> fractionNamesList = [
+    S.current.fractionName1,
+    S.current.fractionName2,
+    S.current.fractionName3,
+  ];
+  
   factory RatingController() {
-    initFractions();
     _this = RatingController._();
     return _this;
-  }  
+  }
 
-  RatingController._();
-
-  List<String> get fractionNamesList => fractionNamesList;
+  RatingController._() {
+    _initFractions();
+  }
 
   void updateRating() async {
     try {
@@ -34,14 +62,18 @@ class RatingController extends ControllerMVC {
     }
   }
 
-  static RatingController get controller => _this;
+  void _initFractions() {
+    this.fractions.forEach((Fraction fraction) {
+      fraction.initFraction();
+    });
+  }
 
   int getTeamAmountOfFraction(Fraction fraction) {
     return fraction.teamNumber;
   }
 
   Fraction getFractionById(int fractionId) {
-    return fraction[fractionId];
+    return this.fractions[fractionId];
   }
 
 }

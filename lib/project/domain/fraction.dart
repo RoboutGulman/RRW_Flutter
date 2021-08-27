@@ -1,45 +1,10 @@
-import 'package:rrw_mvc_refac/project/domain/const.dart';
-import 'package:rrw_mvc_refac/project/domain/team.dart';
+import '../domain/const.dart';
+import '../domain/team.dart';
+import '../presentation/rating_controller.dart';
 
 import '../../generated/l10n.dart';
 
 import 'post_rating.dart';
-
-void initFractions() {
-  rrFraction.initFraction();
-  prFraction.initFraction();
-  tkFraction.initFraction();
-}
-
-final Fraction rrFraction = Fraction(
-  name: fractionNamesList[RR_FRACTION_ID],
-  id: RR_FRACTION_ID,
-  maxTeamAmount: RR_TEAM_AMOUNT,
-);
-
-final Fraction prFraction = Fraction(
-  name: fractionNamesList[PR_FRACTION_ID],
-  id: PR_FRACTION_ID,
-  maxTeamAmount: PR_TEAM_AMOUNT,
-);
-
-final Fraction tkFraction = Fraction(
-  name: fractionNamesList[TK_FRACTION_ID],
-  id: TK_FRACTION_ID,
-  maxTeamAmount: TK_TEAM_AMOUNT,
-);
-
-final List<Fraction> fraction = <Fraction>[
-  rrFraction,
-  prFraction,
-  tkFraction,
-];
-
-final List<String> fractionNamesList = [
-  S.current.fractionName1,
-  S.current.fractionName2,
-  S.current.fractionName3,
-];
 
 class Fraction {
   final String name;
@@ -101,9 +66,10 @@ class Fraction {
 _TeamNames teamNames = _TeamNames();
 
 void updateRatingBy(GameRating gameRating) {
+  RatingController _con = RatingController.controller;
   int updatedTeamAmount = 0; //as teamId, both means same
 
-  fraction.forEach((Fraction fraction) {
+  _con.fractions.forEach((Fraction fraction) {
     List<TeamInfo> fractionRating = gameRating.getFractionInfoBy(fraction.id);
 
     fraction.teamList.forEach((Team team) {

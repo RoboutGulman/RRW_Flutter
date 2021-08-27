@@ -4,7 +4,6 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import '../../../generated/l10n.dart';
 
 import '../../presentation/rating_controller.dart';
-import '../../domain/fraction.dart';
 import 'fraction_widget.dart';
 
 class RatingPage extends StatefulWidget {
@@ -59,7 +58,7 @@ class _RatingPage extends StateMVC<RatingPage> {
                 height: 44,
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(fractionNamesList[fractionIndex],
+                  child: Text(_con.fractionNamesList[fractionIndex],
                       style: Theme.of(context).primaryTextTheme.headline2),
                 ),
               ),
@@ -67,7 +66,7 @@ class _RatingPage extends StateMVC<RatingPage> {
             ],
           );
         },
-        itemCount: fractionNamesList.length,
+        itemCount: _con.fractionNamesList.length,
       ),
     );
   }
