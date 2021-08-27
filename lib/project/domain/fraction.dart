@@ -62,6 +62,10 @@ class Fraction {
 
 void updateRatingBy(GameRating gameRating) {
   RatingController _con = RatingController.controller;
+  //TODO:
+  //в TeamInfo с сервера должны приходить id команды (опционально цвет команды)
+  //сейчас приходит имя команды строкой - неудобно???
+  //поэтому ввёл эту переменную
   int updatedTeamAmount = 0; //as teamId, both means same
 
   _con.fractions.forEach((Fraction fraction) {
