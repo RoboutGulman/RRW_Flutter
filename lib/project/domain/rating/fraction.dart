@@ -12,7 +12,9 @@ class Fraction {
   static int globalTeamAmount = 0;
   List<Team> teamList = <Team>[];
 
-  Fraction({required this.name, required this.id, required this.maxTeamAmount});
+  Fraction({required this.name, required this.id, required this.maxTeamAmount}) {
+    globalTeamAmount = 0;
+  }
 
   void initFraction() {
     for (var i = 0; i < this.maxTeamAmount; i++) {
