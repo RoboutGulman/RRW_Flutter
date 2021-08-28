@@ -63,7 +63,7 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
                     _con.fractionStorage[fractionIndex].teamNumber,
                 child: LayoutBuilder(builder: (context, constraints) {
                   return ToggleButtons(
-                    children: _ClickableTeamList(fractionIndex),
+                    children: _clickableTeamList(fractionIndex),
                     isSelected: _isSelected,
                     onPressed: (int selectedIndex) { //здесь можно ловить выбор пользователя
 
@@ -80,7 +80,10 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
                         }
                       }
 
-                      setState(() {_con.setAvailableTeam();});
+                      setState(() {
+                        _con.generateAvailableTeam(5);
+                        _con.setAvailableTeam();
+                      });
 
                     },
                     constraints: BoxConstraints.expand(
@@ -103,7 +106,7 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
     );
   }
 
-  List<Widget> _ClickableTeamList(int fractionId) {
+  List<Widget> _clickableTeamList(int fractionId) {
     late List<Team> teams;
 
     _con.fractionStorage.forEach((Fraction fraction) {

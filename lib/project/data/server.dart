@@ -52,6 +52,6 @@ class AvailableTeamRepository {
       return availableTeamId;
     }
 
-    return await generate();
+    return generate();
   }
 }

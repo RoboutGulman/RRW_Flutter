@@ -8,13 +8,15 @@ import '../domain/rating/team.dart';
 
 class TeamChooseController extends ControllerMVC {
   static late TeamChooseController _this;
-  List<int> _availableTeam = [];
-  List<Fraction> _fractionStorage = [];
-  List<String> _fractionNameStorage = [];
+  late List<int> _availableTeam;
+  late List<Fraction> _fractionStorage;
+  late List<String> _fractionNameStorage;
 
   static TeamChooseController get controller => _this;
   List<String> get fractionNameStorage => _fractionNameStorage;
   List<Fraction> get fractionStorage => _fractionStorage;
+  void Function(int steps) get generateAvailableTeam => _generateAvailableTeam;
+  void Function() get setAvailableTeam => _setAvailableTeam;
 
   factory TeamChooseController() {
     _this = TeamChooseController._();
@@ -26,42 +28,30 @@ class TeamChooseController extends ControllerMVC {
 
     this._fractionNameStorage = _setDefaultAvailableFractionName();
 
+    _generateAvailableTeam(3);
   }
 
-  void generateAvailableTeam(int steps) async {
+  void _generateAvailableTeam(int steps) async {
     try {
-      _availableTeam =
+      this._availableTeam =
           await AvailableTeamRepository.generateAvailableTeam(steps);
       print('TeamGlobalId list available: ');
-      _availableTeam.forEach((element) {print(element);});
-      print('List end');
+      this._availableTeam.forEach((element) {print(element);});
+      print('List end');      
     } catch (error) {
       print(error);
     }
   }
 
-  void setAvailableTeam() {
+  void _setAvailableTeam() {
     this._fractionStorage = _setDefaultAvailableFraction();
-    generateAvailableTeam(4);
+    this._fractionNameStorage = _setDefaultAvailableFractionName();
 
-    print('Before setting: ');
-    for (var i = 0; i < _fractionStorage.length; i++) {
-      print('fractionStorage teamList length: ${this._fractionStorage[i].teamList.length}, ${this._fractionStorage[i].teamNumber}');
-    }
+    this._fractionStorage.forEach((Fraction fraction) { 
+      fraction.teamList.removeWhere((Team team) => !_availableTeam.contains(team.id_global));
+      fraction.teamNumber = fraction.teamList.length;
+    });
 
-      this._fractionStorage.forEach((Fraction fraction) { 
-        fraction.teamList.removeWhere((Team team) => !_availableTeam.contains(team.id_global));
-        fraction.teamNumber = fraction.teamList.length;
-      });
-
-    print('After setting: ');
-    for (var i = 0; i < _fractionStorage.length; i++) {
-      print('fractionStorage teamList length: ${this._fractionStorage[i].teamList.length}, ${this._fractionStorage[i].teamNumber}');      
-    }
-
-    //this.fractions.forEach((Fraction fraction) {
-    //  print('length: ${fraction.teamList.length}');
-    //});
   }
 
   List<Fraction> _setDefaultAvailableFraction() {
