@@ -24,7 +24,7 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
     super.initState();
     //получаем "список" доступных команд
     //будет доступно столько же, сколько передано в параметре
-    setState(() {_con.generateAvailableTeam(8);});
+    setState(() {_con.generateAvailableTeam(1);});
     //странно, вроде страничка вышла проще по вложенности виджетов состояния,
     //но метод setState все равно не доступен при вызове из контроллера
   }
@@ -44,7 +44,7 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
         physics: const BouncingScrollPhysics(),
         itemBuilder: (BuildContext _, int fractionIndex) {
           List<bool> _isSelected = List.generate(
-              _con.fractions[fractionIndex].teamList.length, (index) => false);
+              _con.fractions[fractionIndex].teamNumber, (index) => false);
 
           return Column(
             children: [
@@ -61,7 +61,7 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
               ),
               Container(
                 height: _teamButtonHeight *
-                    _con.fractions[fractionIndex].teamList.length,
+                    _con.fractions[fractionIndex].teamNumber,
                 child: LayoutBuilder(builder: (context, constraints) {
                   return ToggleButtons(
                     children: _ClickableTeamList(fractionIndex),
@@ -78,10 +78,10 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
                         //и ещё переключаю элементы важного списка
                         if (index == selectedIndex) {
                           _isSelected[selectedIndex] = true;
-                          print('''Selected: 
-                            ${_con.fractions[fractionIndex].teamList[selectedIndex].name},
-                            id: ${_con.fractions[fractionIndex].teamList[selectedIndex].id_global}
-                          ''');
+                          //print('''Selected: 
+                          //  ${_con.fractions[fractionIndex].teamList[selectedIndex].name},
+                          //  id: ${_con.fractions[fractionIndex].teamList[selectedIndex].id_global}
+                          //''');
                         } else {
                           _isSelected[selectedIndex] = false;
                         }
@@ -90,7 +90,7 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
                     constraints: BoxConstraints.expand(
                       width: constraints.maxWidth,
                       height: constraints.maxHeight /
-                          _con.fractions[fractionIndex].teamList.length,
+                          _con.fractions[fractionIndex].teamNumber,
                     ),
                     renderBorder: true,
                     disabledBorderColor: Theme.of(context).primaryColorLight,

@@ -35,10 +35,10 @@ class AvailableTeamRepository {
     //}
 
     List<int> generate() {
-      if (steps > 13) {
+      if (steps > 13 || steps == 0) {
         print('Too many steps');
         return availableTeamId;
-      } else {
+      } else if (steps > 0) {
         steps = 13 - steps;
       }
 
