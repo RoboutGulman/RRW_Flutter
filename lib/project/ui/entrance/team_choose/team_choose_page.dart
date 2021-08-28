@@ -24,7 +24,7 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
     super.initState();
     //получаем "список" доступных команд
     //будет доступно столько же, сколько передано в параметре
-    setState(() {_con.generateAvailableTeam(1);});
+    setState(() {_con.generateAvailableTeam(3);});
     //странно, вроде страничка вышла проще по вложенности виджетов состояния,
     //но метод setState все равно не доступен при вызове из контроллера
   }
@@ -68,24 +68,24 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
                     isSelected: _isSelected,
                     onPressed: (int selectedIndex) { //здесь можно ловить выбор пользователя
 
-                      if (!_isRemoved) { //пока что убираем единожды
-                        setState(() {_con.removeUnavailableTeam();});
-                        _isRemoved = !_isRemoved;
-                      } //можно убирать сразу по нажатию на команду
-
                       for (var index = 0; index < _isSelected.length; index++) {
                         //логирую, какая команда была "выбрана"
                         //и ещё переключаю элементы важного списка
                         if (index == selectedIndex) {
                           _isSelected[selectedIndex] = true;
-                          //print('''Selected: 
-                          //  ${_con.fractions[fractionIndex].teamList[selectedIndex].name},
-                          //  id: ${_con.fractions[fractionIndex].teamList[selectedIndex].id_global}
-                          //''');
+                          print('''Selected: 
+                            ${_con.fractions[fractionIndex].teamList[selectedIndex].name},
+                            id: ${_con.fractions[fractionIndex].teamList[selectedIndex].id_global}
+                          ''');
                         } else {
                           _isSelected[selectedIndex] = false;
                         }
                       }
+
+                      if (!_isRemoved) { //пока что убираем единожды
+                        setState(() {_con.removeUnavailableTeam();});
+                        _isRemoved = !_isRemoved;
+                      } //можно убирать сразу по нажатию на команду
                     },
                     constraints: BoxConstraints.expand(
                       width: constraints.maxWidth,
