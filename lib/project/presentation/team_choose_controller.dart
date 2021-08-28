@@ -65,7 +65,7 @@ class TeamChooseController extends ControllerMVC {
   }
 
   removeUnavailableTeam() {
-    fractions.forEach((Fraction fraction) {
+    _fractions.forEach((Fraction fraction) {
       _availableTeam.forEach((int availableTeamId) {
         fraction.teamList.removeWhere(
             (Team team) => !_availableTeam.contains(team.id_global));
