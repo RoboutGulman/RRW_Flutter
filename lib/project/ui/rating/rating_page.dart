@@ -29,15 +29,6 @@ class _RatingPage extends StateMVC<RatingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Text('update rating'),
-        onPressed: () {
-          //обновление рейтинга произойдёт при нажатии на кнопку
-          setState(() {
-            _con.updateRating();
-          });
-        },
-      ),
       appBar: AppBar(
         title: Text(
           S.of(context).tabName1,
@@ -53,9 +44,9 @@ class _RatingPage extends StateMVC<RatingPage> {
             children: [
               Container(
                 padding: const EdgeInsets.only(left: 12.0),
-                color: Theme.of(context).unselectedWidgetColor,
                 width: MediaQuery.of(context).size.width,
                 height: 44,
+                color: Theme.of(context).primaryColorLight,
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(_con.fractionNamesList[fractionIndex],
@@ -68,6 +59,16 @@ class _RatingPage extends StateMVC<RatingPage> {
         },
         itemCount: _con.fractionNamesList.length,
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.refresh),
+        onPressed: () {
+          //обновление рейтинга произойдёт при нажатии на кнопку
+          setState(() {
+            _con.updateRating();
+          });
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
     );
   }
 }
