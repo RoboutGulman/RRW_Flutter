@@ -28,16 +28,14 @@ class TeamChooseController extends ControllerMVC {
 
     this._fractionNameStorage = _setDefaultAvailableFractionName();
 
+    //получаем текущий список команд при старте странички
     _generateAvailableTeam(3);
   }
 
   void _generateAvailableTeam(int steps) async {
     try {
       this._availableTeam =
-          await AvailableTeamRepository.generateAvailableTeam(steps);
-      print('TeamGlobalId list available: ');
-      this._availableTeam.forEach((element) {print(element);});
-      print('List end');      
+          await AvailableTeamRepository.generateAvailableTeam(steps);    
     } catch (error) {
       print(error);
     }
@@ -51,6 +49,12 @@ class TeamChooseController extends ControllerMVC {
       fraction.teamList.removeWhere((Team team) => !_availableTeam.contains(team.id_global));
       fraction.teamNumber = fraction.teamList.length;
     });
+
+    for (var i = 0; i < _fractionStorage.length; i++) {
+      if (_fractionStorage[i].teamNumber == 0) {
+        _fractionNameStorage[i] = _setInNameEmptyInfo(_fractionNameStorage[i]);
+      }      
+    }
 
   }
 
@@ -90,6 +94,10 @@ class TeamChooseController extends ControllerMVC {
     fraction.forEach((Fraction frac) {
       frac.initFraction();
     });    
+  }
+
+  String _setInNameEmptyInfo(String fractionName) {
+    return fractionName + ' empty';
   }
 
 }

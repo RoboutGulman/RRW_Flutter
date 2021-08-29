@@ -40,7 +40,7 @@ class AppEntrance extends StatelessWidget {
         routes: {
           '/': (context) => TitlePage(),
           '/home': (context) => HomePage(),
-          '/login': (context) => TeamChoose(),
+          '/login': (context) => LoginPage(),
           '/choose-team': (context) => TeamChoose(),
           //'/Fraction':(context)=>FractionPage(),
           //'/Fraction/rrTeam':(context)=>RRTeamPage(),

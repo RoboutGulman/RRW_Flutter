@@ -17,16 +17,12 @@ class TeamChoose extends StatefulWidget {
 
 class _TeamChooseState extends StateMVC<TeamChoose> {
   final TeamChooseController _con = TeamChooseController();
+
   final double _teamButtonHeight = 45;
-  bool _isRemoved = false;
 
   @override
   void initState() {
     super.initState();
-    //получаем "список" доступных команд
-    //будет доступно столько же, сколько передано в параметре
-    //странно, вроде страничка вышла проще по вложенности виджетов состояния,
-    //но метод setState все равно не доступен при вызове из контроллера
   }
 
   @override
@@ -68,19 +64,16 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
                     onPressed: (int selectedIndex) { //здесь можно ловить выбор пользователя
 
                       for (var index = 0; index < _isSelected.length; index++) {
-                        //логирую, какая команда была "выбрана"
                         if (index == selectedIndex) {
                           _isSelected[selectedIndex] = true;
-                          print('''Selected: 
-                            ${_con.fractionStorage[fractionIndex].teamList[selectedIndex].name},
-                            id: ${_con.fractionStorage[fractionIndex].teamList[selectedIndex].id_global}
-                          ''');
                         } else {
                           _isSelected[selectedIndex] = false;
                         }
                       }
 
                       setState(() {
+                        //получаем список команд при нажатии
+                        //и обновляем хранилища фракций
                         _con.generateAvailableTeam(5);
                         _con.setAvailableTeam();
                       });
@@ -103,6 +96,14 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
         },
         itemCount: _con.fractionNameStorage.length,
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.keyboard_arrow_right_outlined),
+        onPressed: () {
+          print('next');
+          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
     );
   }
 
