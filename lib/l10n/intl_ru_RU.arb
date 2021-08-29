@@ -19,6 +19,7 @@
   "snakbar":"Добро пожаловать, {login}",
 
   "team_choose_page": "Выбери команду",
+  "team_choose_page_noTeamInfo": "НЕТ СВОБОДНОЙ КОМАНДЫ",
 
   "rrRatingStat1":"пассажиры",
   "rrRatingStat2":"кредиты",

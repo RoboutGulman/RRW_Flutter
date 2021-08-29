@@ -59,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tabName4": MessageLookupByLibrary.simpleMessage("Банк"),
         "team_choose_page":
             MessageLookupByLibrary.simpleMessage("Выбери команду"),
+        "team_choose_page_noTeamInfo":
+            MessageLookupByLibrary.simpleMessage("НЕТ СВОБОДНОЙ КОМАНДЫ"),
         "text_field_login": MessageLookupByLibrary.simpleMessage("Логин"),
         "text_field_room_id": MessageLookupByLibrary.simpleMessage("ID сессии"),
         "tkRatingStat1": MessageLookupByLibrary.simpleMessage("ж/д"),

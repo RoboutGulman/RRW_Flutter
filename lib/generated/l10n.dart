@@ -180,6 +180,16 @@ class S {
     );
   }
 
+  /// `НЕТ СВОБОДНОЙ КОМАНДЫ`
+  String get team_choose_page_noTeamInfo {
+    return Intl.message(
+      'НЕТ СВОБОДНОЙ КОМАНДЫ',
+      name: 'team_choose_page_noTeamInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `пассажиры`
   String get rrRatingStat1 {
     return Intl.message(

@@ -50,14 +50,6 @@ class TeamChooseController extends ControllerMVC {
       fraction.teamList.removeWhere((Team team) => !_availableTeam.contains(team.id_global));
       fraction.teamNumber = fraction.teamList.length;
     });
-
-    //обозначим в имени фракции, что этих ролей больше нет
-    for (var i = 0; i < _fractionStorage.length; i++) {
-      if (_fractionStorage[i].teamNumber == 0) {
-        _fractionNameStorage[i] = _setInNameEmptyInfo(_fractionNameStorage[i]);
-      }      
-    }
-
   }
 
   List<Fraction> _setDefaultAvailableFraction() {
@@ -96,10 +88,6 @@ class TeamChooseController extends ControllerMVC {
     fraction.forEach((Fraction frac) {
       frac.initFraction();
     });    
-  }
-
-  String _setInNameEmptyInfo(String fractionName) {
-    return fractionName + ' empty';
   }
 
 }

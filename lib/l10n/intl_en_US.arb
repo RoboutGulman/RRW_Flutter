@@ -18,6 +18,7 @@
   "snakbar":"Welcome, {login}",
 
   "team_choose_page": "Choose team",
+  "team_choose_page_noTeamInfo": "NO AVAILABLE TEAMS",
 
   "rrRatingStat1":"passengers",
   "rrRatingStat2":"loans",

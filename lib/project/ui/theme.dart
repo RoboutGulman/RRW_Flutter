@@ -92,6 +92,13 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
       fontWeight: FontWeight.w400,
       letterSpacing: -0.08,
     ),
+    //сообщение об отсутствии команд
+    headline5: TextStyle(
+      color: Colors.redAccent,
+      fontSize: 13,
+      fontWeight: FontWeight.w600,
+      letterSpacing: -0.08,
+    ),
     //изменение рейтинга
     headline3: TextStyle(
       color: Color.fromRGBO(33, 150, 83, 1),

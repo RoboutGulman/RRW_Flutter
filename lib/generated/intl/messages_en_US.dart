@@ -58,6 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tabName3": MessageLookupByLibrary.simpleMessage("Execution"),
         "tabName4": MessageLookupByLibrary.simpleMessage("Bank"),
         "team_choose_page": MessageLookupByLibrary.simpleMessage("Choose team"),
+        "team_choose_page_noTeamInfo":
+            MessageLookupByLibrary.simpleMessage("NO AVAILABLE TEAMS"),
         "text_field_login": MessageLookupByLibrary.simpleMessage("Login"),
         "text_field_room_id":
             MessageLookupByLibrary.simpleMessage("session ID"),

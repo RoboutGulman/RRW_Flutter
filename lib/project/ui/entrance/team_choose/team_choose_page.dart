@@ -44,16 +44,45 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
 
           return Column(
             children: [
-              Container(
-                padding: EdgeInsets.only(left: 12.0),
-                height: _teamButtonHeight,
-                color: Theme.of(context).primaryColorLight,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(_con.fractionNameStorage[fractionIndex],
-                      style: Theme.of(context).primaryTextTheme.headline2),
+              (!_con.fractionStorage[fractionIndex].teamList.isEmpty)
+
+              ? Container(
+                  padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                  height: _teamButtonHeight,
+                  color: Theme.of(context).primaryColorLight,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      _con.fractionNameStorage[fractionIndex],
+                      style: Theme.of(context).primaryTextTheme.headline2
+                    ),
+                  ),
+                )
+              : Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                      height: _teamButtonHeight,
+                      color: Theme.of(context).primaryColorLight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            _con.fractionNameStorage[fractionIndex],
+                            style: Theme.of(context).primaryTextTheme.headline2
+                          ),
+                          Text(
+                            S.current.team_choose_page_noTeamInfo,
+                            style: Theme.of(context).primaryTextTheme.headline5
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
                 ),
-              ),
               Container(
                 height: _teamButtonHeight *
                     _con.fractionStorage[fractionIndex].teamNumber,
@@ -77,6 +106,12 @@ class _TeamChooseState extends StateMVC<TeamChoose> {
                         _con.generateAvailableTeam(5);
                         _con.setAvailableTeam();
                       });
+
+                      //по клику можно придумать что-то с оповещением пользователя
+                      //к примеру выкинуть экран с вопросом: "Вы хотите выбрать эту команду name?"
+                      //и при подтверждении снова обновлять список 
+                      //и выкидывать сообщение об ошибке (команда уже занята)
+                      //или переходить на следующую страничку Rating
 
                     },
                     constraints: BoxConstraints.expand(
